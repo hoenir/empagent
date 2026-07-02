@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explore, exploit, and develop — from empowerment alone</title>
+<style>
+  :root{
+    --ink:#1a1a2e; --paper:#fbfaf7; --rule:#e6e2d8;
+    --teal:#0f7173; --red:#e94560; --gold:#b9770a; --muted:#6b6b76;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font:17px/1.65 Georgia,"Iowan Old Style",serif;}
+  .wrap{max-width:780px;margin:0 auto;padding:46px 22px 90px;}
+  h1{font:600 33px/1.18 "Helvetica Neue",Arial,sans-serif;letter-spacing:-.4px;margin:0 0 6px;}
+  .sub{font:400 18px/1.45 "Helvetica Neue",Arial,sans-serif;color:var(--muted);margin:0 0 4px;}
+  .byline{font:400 14px/1.4 "Helvetica Neue",Arial,sans-serif;color:var(--muted);
+          border-bottom:1px solid var(--rule);padding-bottom:22px;margin-bottom:26px;}
+  h2{font:600 22px/1.25 "Helvetica Neue",Arial,sans-serif;margin:42px 0 10px;letter-spacing:-.2px;}
+  h2 .n{color:var(--red);font-variant-numeric:tabular-nums;margin-right:.45em;}
+  h3{font:600 16px "Helvetica Neue",Arial,sans-serif;margin:26px 0 6px;}
+  p{margin:0 0 14px;}
+  a{color:var(--teal);}
+  .abstract{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--teal);
+            border-radius:5px;padding:18px 20px;margin:6px 0 8px;font-size:16px;}
+  .abstract b{font-family:"Helvetica Neue",Arial,sans-serif;}
+  figure{margin:24px 0 8px;}
+  figure img{width:100%;border:1px solid var(--rule);border-radius:6px;background:#fff;}
+  figcaption{font:400 14px/1.5 "Helvetica Neue",Arial,sans-serif;color:var(--muted);
+             margin-top:8px;}
+  figcaption b{color:var(--ink);}
+  .eq{display:block;text-align:center;font-size:17px;margin:16px 0;}
+  .eq i{font-family:"Times New Roman",serif;}
+  code{font:14px ui-monospace,Menlo,Consolas,monospace;background:#f0eee8;padding:1px 5px;border-radius:4px;}
+  .key{font-family:"Helvetica Neue",Arial,sans-serif;}
+  .tealt{color:var(--teal);font-weight:600;} .redt{color:var(--red);font-weight:600;}
+  .goldt{color:var(--gold);font-weight:600;}
+  ul{margin:0 0 14px;padding-left:22px;} li{margin:0 0 7px;}
+
+  /* ---- demo ---- */
+  .demo{background:#15151f;color:#e9e7df;border-radius:10px;padding:18px;margin:18px 0 10px;
+        font-family:"Helvetica Neue",Arial,sans-serif;}
+  .demo h3{color:#fff;margin:0 0 2px;font-size:17px;}
+  .demo .hint{color:#9b9aa6;font-size:13px;margin:0 0 14px;}
+  .demogrid{display:flex;gap:16px;flex-wrap:wrap;}
+  .demogrid .left{flex:1 1 360px;} .demogrid .right{flex:1 1 250px;min-width:230px;}
+  canvas{display:block;background:#0c0c14;border-radius:6px;width:100%;}
+  #bstrip{margin-top:8px;height:64px;}
+  .badge{display:inline-block;font-weight:700;font-size:13px;letter-spacing:.5px;
+         padding:4px 12px;border-radius:20px;margin-bottom:10px;}
+  .badge.cons{background:rgba(15,113,115,.25);color:#5fd0c8;border:1px solid #0f7173;}
+  .badge.vent{background:rgba(233,69,96,.22);color:#ff8a9e;border:1px solid #e94560;}
+  .meter{height:13px;background:#26263a;border-radius:7px;overflow:hidden;margin:3px 0 11px;}
+  .meter > div{height:100%;width:0;transition:width .12s linear;}
+  .lbl{font-size:12px;color:#b6b5c2;display:flex;justify-content:space-between;margin-bottom:2px;}
+  .ctrl{margin:13px 0 4px;} .ctrl label{font-size:12.5px;color:#cfcedb;display:block;margin-bottom:3px;}
+  .ctrl input[type=range]{width:100%;accent-color:#e94560;}
+  .val{color:#fff;font-variant-numeric:tabular-nums;}
+  .btns{display:flex;gap:8px;margin-top:12px;}
+  .btns button{background:#2a2a3d;color:#fff;border:1px solid #3d3d52;border-radius:6px;
+               padding:7px 13px;font-size:13px;cursor:pointer;}
+  .btns button:hover{background:#36364c;}
+  .period{background:#1d1d2b;border-radius:7px;padding:10px 12px;margin-top:12px;font-size:13px;color:#cfcedb;}
+  .period b{color:#fff;font-size:16px;}
+  .period .row{display:flex;justify-content:space-between;margin:2px 0;}
+  .footer{border-top:1px solid var(--rule);margin-top:48px;padding-top:18px;
+          font:400 14px/1.55 "Helvetica Neue",Arial,sans-serif;color:var(--muted);}
+  .tag{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;text-transform:uppercase;
+       letter-spacing:.8px;color:var(--red);font-weight:700;}
+  .lpt{color:var(--teal);font-weight:600;} .nvt{color:var(--red);font-weight:600;}
+  .verdict{font-weight:700;font-size:14px;margin:2px 0 12px;min-height:20px;}
+  select{width:100%;padding:6px;border-radius:6px;background:#2a2a3d;color:#fff;
+         border:1px solid #3d3d52;font-size:13px;}
+  .partdiv{margin:66px 0 6px;border-top:2px solid var(--ink);padding-top:16px;}
+  .partdiv .pl{font:700 13px/1 "Helvetica Neue",Arial,sans-serif;text-transform:uppercase;
+               letter-spacing:1.6px;color:var(--red);}
+  .partdiv .pt{font:600 27px/1.2 "Helvetica Neue",Arial,sans-serif;color:var(--ink);margin:7px 0 0;}
+  .partdiv .pd{font:400 16px/1.5 Georgia,serif;color:var(--muted);margin:7px 0 0;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="tag">computational note · intrinsic motivation</div>
+  <h1>Explore, exploit, and develop — from empowerment alone</h1>
+  <p class="sub">One quantity — an agent's control over its own future — in two readings, its level and its
+     rate of change. Embodied, it yields a foraging rhythm, a developmental curriculum, and an escape from the
+     paradoxes that trap the other reward-free principles.</p>
+  <p class="byline">A minimal-model study in gridworlds. Two interactive demos; all figures reproducible.</p>
+
+  <div class="abstract">
+    <p style="margin-bottom:8px"><b>Abstract.</b> Reward-free agents are usually driven by one of a few
+    intrinsic principles — curiosity (information gain), the free-energy principle, maximum occupancy — each
+    with a known adversarial failure. We take a single quantity, <b>empowerment</b> (the channel capacity from
+    an agent's actions to its future observations — how much control it has), and show that in two readings it
+    does a surprising amount of work. <b>Part I:</b> its moment-to-moment <i>gain</i>, with actuators throttled
+    by a depleting body, produces a relaxation oscillation between a <span class="tealt">consolidate</span>
+    phase and a <span class="redt">venture</span> phase, the explore/exploit balance set by a physical
+    timescale (<i>T</i>&nbsp;∝&nbsp;1/δ) rather than a tuned weight — beating the weighted-sum baseline it is
+    meant to replace. <b>Part II:</b> its <i>learning progress</i> on a learned model forages the frontier of
+    what the agent can <i>control</i> and ignores the “noisy TV,” and, given a world with prerequisite
+    structure, climbs a developmental curriculum with no schedule. <b>Part III:</b> because empowerment counts
+    only the futures you <i>cause</i>, it sidesteps the noisy-TV and grand-roulette traps that snare
+    information-gain and maximum-occupancy — and the move that makes it lively rather than throned, taking a
+    derivative and embodying it, is the one corner of the landscape that escapes every paradox.</p>
+  </div>
+
+  <div class="partdiv">
+    <div class="pl">Part I</div>
+    <div class="pt">A rhythm: when to explore</div>
+    <div class="pd">A single empowerment-gain drive, embodied, alternates between consolidating the familiar
+    and venturing into the unknown — the explore/exploit cycle as a temporal consequence, not a weighted sum.</div>
+  </div>
+
+  <h2><span class="n">1</span>The question</h2>
+  <p>A drive that only ever climbs a fixed landscape ends at a fixed point. Alternation between two
+  behaviours is a <i>limit cycle</i>, and limit cycles need delayed negative feedback. So the interesting
+  question is not "how do we compute a curiosity signal" — there are several good ones — but
+  <i>what makes occupying a good state degrade it, with a recovery lag,</i> so that a single appetite
+  produces a rhythm rather than a resting place.</p>
+  <p>Our candidate appetite is <span class="key">empowerment</span> (Klyubin, Polani &amp; Nehaniv):
+  an agent's empowerment at a state is the Shannon channel capacity from a short sequence of its own
+  actions to its resulting future observations — an intrinsic, reward-free measure of "how much
+  control I have here." The established way to get exploration <i>and</i> exploitation out of such a
+  measure (de Abril &amp; Kanai; and, in a different idiom, the expected-free-energy decomposition of
+  active inference) is to add a second, epistemic term and tune the mix. We test a structurally
+  different claim: <b>one empowerment-gain functional, two faces, alternating in time</b> because two
+  slow variables hand off which face is binding.</p>
+
+  <h2><span class="n">2</span>The body is a bottleneck on control</h2>
+  <p>The arena has two open <i>basins</i> where many futures are reachable (high empowerment), joined by
+  a constricted corridor, with a resource placed in a moderate-empowerment chamber. The agent is a
+  five-action grid vehicle whose body integrity <i>b</i>&nbsp;∈&nbsp;[0,1] gates its actuators: with
+  probability <i>g</i>(<i>b</i>) the commanded action is replaced by a random one, and <i>g</i> is steep
+  near <i>b</i>=0. Commands therefore pass through two channels in series,
+  <span class="eq"><i>A<sup>n</sup></i> &nbsp;→<sub>&nbsp;body, noise <i>g</i>(<i>b</i>)</sub>&nbsp;
+  <i>Ã<sup>n</sup></i> &nbsp;→<sub>&nbsp;world + sensors</sub>&nbsp; <i>X<sub>t+n</sub></i> ,</span>
+  and by the data-processing inequality the realizable empowerment can never exceed the tighter stage.</p>
+  <figure>
+    <img src="paper/figs/fig1_field.png" alt="empowerment field and body bottleneck">
+    <figcaption><b>Figure 1.</b> (a) The 3-step empowerment field at full body: high in the open basins,
+    low at walls and in the corridor — the classic "keep your options open" landscape. (b) Empowerment
+    rises with body integrity and then saturates. This makes "hunger" a <i>regime</i>, not a term we
+    wrote: when <i>b</i> is low the body stage binds and refuelling buys a lot of control (the
+    <span class="redt">hunger cliff</span>); when <i>b</i> is high the world binds and refuelling buys
+    nothing (the <span class="tealt">satiation plateau</span>, ∂<i>E</i>/∂<i>b</i>&nbsp;→&nbsp;0).</figcaption>
+  </figure>
+
+  <h2><span class="n">3</span>One functional, two faces</h2>
+  <p>The agent acts to maximize the discounted <i>gain</i> in empowerment it can realize by going
+  somewhere, <span class="eq"><i>R</i> = <i>Ê</i>(after) − <i>Ê</i>(before).</span>
+  This single quantity has two sources, both increments of the same <i>E</i>, added with coefficient one
+  — there is no mixing weight anywhere in the code:</p>
+  <ul>
+    <li><span class="tealt">Somatic face.</span> Refuelling raises <i>b</i> and thus raises <i>E</i>.
+    By the bottleneck (Fig.&nbsp;1b) this is large exactly when the agent is hungry and ≈0 when sated.
+    It pulls the agent <i>back</i> to consolidate.</li>
+    <li><span class="redt">Epistemic face.</span> Reducing model uncertainty <i>u</i>(<i>c</i>) at a cell
+    raises the empowerment the agent can actually <i>realize</i> there (≈ <i>u</i>·<i>E</i>). It pulls the
+    agent <i>out</i> toward the unknown — but it is <b>gated by the body</b>: the empowerment you can
+    realize by exploring a cell is throttled by the integrity you would have left after budgeting the
+    trip home. Explore a place you cannot afford to leave and the realizable gain is zero.</li>
+  </ul>
+  <p>That gate is not a survival term bolted on; it is the same data-processing inequality that makes the
+  body a bottleneck, now applied to viability. It is also the load-bearing idea: it makes
+  <i>"to explore effectively, first consolidate"</i> a <i>consequence</i> — you cannot realize control
+  gains on a depleted platform — rather than a scheduling rule. (It is the one modelling choice doing
+  real work; we return to it critically in §10.)</p>
+
+  <!-- ====================== LIVE DEMO ====================== -->
+  <h2><span class="n">4</span>See it run</h2>
+  <p>This is the actual agent — the planner, the body bottleneck, and the forgetting model all run in
+  your browser; nothing is pre-recorded. Watch the world dim as the body depletes, the agent commute
+  between the resource (★) and the far basins, and the two faces take turns. Then drag
+  <span class="goldt">metabolic rate δ</span> and watch the feeding period track <i>0.14/δ</i>.</p>
+
+  <div class="demo">
+    <div class="demogrid">
+      <div class="left">
+        <canvas id="arena" width="540" height="300"></canvas>
+        <canvas id="bstrip" width="540" height="64"></canvas>
+      </div>
+      <div class="right">
+        <span id="phaseBadge" class="badge cons">CONSOLIDATING</span>
+        <div class="lbl"><span>body integrity <i>b</i></span><span class="val" id="bval">1.00</span></div>
+        <div class="meter"><div id="bbar" style="background:#0f7173"></div></div>
+        <div class="lbl"><span style="color:#5fd0c8">somatic gain</span></div>
+        <div class="meter"><div id="sombar" style="background:#0f7173"></div></div>
+        <div class="lbl"><span style="color:#ff8a9e">epistemic gain</span></div>
+        <div class="meter"><div id="epibar" style="background:#e94560"></div></div>
+        <canvas id="phaseplane" width="240" height="150"></canvas>
+        <div class="ctrl"><label>metabolic rate δ = <span class="val" id="deltav">0.006</span></label>
+          <input type="range" id="delta" min="0.003" max="0.012" step="0.001" value="0.006"></div>
+        <div class="ctrl"><label>model retention λ = <span class="val" id="lamv">0.996</span></label>
+          <input type="range" id="lam" min="0.970" max="0.999" step="0.001" value="0.996"></div>
+        <div class="ctrl"><label>speed = <span class="val" id="speedv">2×</span></label>
+          <input type="range" id="speed" min="1" max="8" step="1" value="2"></div>
+        <div class="btns"><button id="playBtn">⏸ pause</button><button id="resetBtn">↺ reset</button></div>
+        <div class="period">
+          <div class="row"><span>predicted period 0.14/δ</span><b id="tpred">23</b></div>
+          <div class="row"><span>measured feeding period</span><b id="tmeas">—</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <figcaption style="margin-bottom:6px">Small white dots mark cells the model has grown uncertain about
+  (epistemic fuel regenerating). The scatter plot is the live (somatic, epistemic) plane: points hug the
+  two axes and avoid the upper-right corner — the two faces never fire together.</figcaption>
+
+  <h2><span class="n">5</span>The controls: when does a rhythm appear?</h2>
+  <p>Crossing the drive (level vs. gain) with the feedback (off vs. on) isolates what each ingredient
+  contributes. Only the full combination both consolidates <i>and</i> explores.</p>
+  <figure>
+    <img src="paper/figs/fig2_matrix.png" alt="experiment matrix occupancy maps">
+    <figcaption><b>Figure 2.</b> Where the agent spends its time (log dwell). A <b>level</b> drive with
+    no feedback parks (fixed point). Add body depletion and even the level drive cycles — but it only
+    refuels in the nearest basin: oscillation alone is cheap. A <b>gain</b> drive with no feedback sweeps
+    the arena once and then goes quiet (the known "empowerment under-explores then settles" result). Only
+    <span class="redt">gain with body + forgetting</span> covers everything <i>and</i> keeps returning.</figcaption>
+  </figure>
+
+  <h2><span class="n">6</span>The result: a consolidate–venture rhythm</h2>
+  <figure>
+    <img src="paper/figs/fig3_headline.png" alt="headline time series">
+    <figcaption><b>Figure 3.</b> Body integrity saws up (consolidate) and down (venture). The two faces of
+    the single gain stream are sharply anti-phase: whenever the <span class="tealt">somatic</span> face is
+    high the <span class="redt">epistemic</span> face is ≈0, and vice versa. Distance-from-resource swings
+    from 0 (home) to ~10 (the far basins) — the agent genuinely commutes.</figcaption>
+  </figure>
+
+  <h2><span class="n">7</span>It is a limit cycle, not diffusion</h2>
+  <figure>
+    <img src="paper/figs/fig4_phaseplane.png" alt="phase-plane and autocorrelation">
+    <figcaption><b>Figure 4.</b> (a) In the plane of the two faces the trajectory hugs the axes and leaves
+    the upper-right empty: the faces are mutually exclusive in time. (b) The autocorrelation of
+    distance-from-resource <i>oscillates</i> for the gain drive (a clean period), decays monotonically for
+    a random policy (diffusion), and is flat for the parked level agent (fixed point).</figcaption>
+  </figure>
+
+  <h2><span class="n">8</span>No mixing weight is doing the work</h2>
+  <p>If a hidden tradeoff parameter were secretly blending the two behaviours, we would see both faces
+  contributing at every step. Instead each phase is driven almost purely by one face.</p>
+  <figure>
+    <img src="paper/figs/fig5_decomposition.png" alt="gain decomposition">
+    <figcaption><b>Figure 5.</b> (a) Aligned to venture onset, dominance <i>hands off</i> from somatic to
+    epistemic and back — a single stream changing which face it expresses. (b) The per-step epistemic
+    share is <i>bimodal</i>: consolidate steps are ~all somatic, venture steps are ~all epistemic.
+    There is no intermediate blend, because there is no coefficient to set one.</figcaption>
+  </figure>
+
+  <h2><span class="n">9</span>The balance is a timescale, not a coefficient</h2>
+  <p>The decisive, falsifiable signature of a relaxation oscillator (rather than a tuned blend) is that
+  the period scales with the physical recovery/depletion timescales. It does, cleanly, for the metabolic
+  rate.</p>
+  <figure>
+    <img src="paper/figs/fig6_scaling.png" alt="period scaling">
+    <figcaption><b>Figure 6.</b> (a) The cycle period follows <i>T</i>&nbsp;∝&nbsp;1/δ over the whole
+    sweep (<i>T</i>δ ≈ 0.14, tight error bars): the metabolic rate is the clock. (b) The forgetting rate
+    λ instead sets exploration <i>breadth</i> — fast forgetting re-grooves locally, slow forgetting forces
+    wide ranging. Two physical timescales, neither an explore/exploit weight.</figcaption>
+  </figure>
+  <figure>
+    <img src="paper/figs/fig7_goldilocks.png" alt="existence band">
+    <figcaption><b>Figure 7.</b> The oscillation exists in a band of δ. Too fast and the body margin
+    collapses toward zero (intermittent starvation); the healthy regime is where metabolism is slow
+    relative to travel time. Mapping this band <i>is</i> a result — it is the oscillator's existence
+    region.</figcaption>
+  </figure>
+
+  <h3>Why 1/δ? The reduction: a homeostat clocked by metabolism.</h3>
+  <p>Strip away the spatial detail and the agent tracks a single slow variable — body integrity <i>b</i> —
+  pushed by the two faces: somatic <i>σ</i>(<i>b</i>) grows as <i>b</i> falls (hunger), epistemic
+  <i>w</i>·<i>E</i><sub>far</sub>(<i>b</i>) grows as <i>b</i> rises (control to spend on exploring). They
+  cross at a setpoint <i>b*</i> where the faces balance (Fig.&nbsp;12a) — and the agent's body sits right
+  there. That setpoint is not a tuned weight; it is a fixed point of the body–empowerment dynamics, set by
+  the empowerment field and <i>independent of δ</i>. Around it the body relaxes at two fast-switched
+  rates — deplete at −δ, refuel at +ι (Fig.&nbsp;12b) — the signature of a relaxation oscillator. Because
+  the setpoint geometry doesn't move with δ while the rate of approach does, the period is a pure metabolic
+  clock: <i>T</i>&nbsp;∝&nbsp;1/δ, in both the reduced model and the full agent (Fig.&nbsp;12c).</p>
+  <figure>
+    <img src="paper/figs/fig12_reduction.png" alt="dynamical reduction to a homeostat">
+    <figcaption><b>Figure 12.</b> (a) The two faces, as functions of body integrity, cross at a setpoint
+    <i>b*</i>; the agent's body (grey histogram) lives at that crossing. (b) The body's rate of change is
+    bimodal — it relaxes at exactly −δ and +ι. (c) Period vs δ for the reduced homeostat and the full
+    agent: both follow slope −1.</figcaption>
+  </figure>
+  <p>One honest caveat: this is a <i>weak-amplitude</i> relaxation oscillator, not a dramatic van der Pol
+  swing between full and empty — and that is a consequence of the design, not a disappointment. The same
+  viability gate (§13) that keeps the agent alive also keeps it near <i>b*</i>, so it makes small, safe
+  excursions rather than crashing between extremes. The reduction is qualitative — it omits the travel that
+  sets the true amplitude — but it isolates the one thing the headline rests on: the explore/exploit balance
+  is a homeostatic setpoint, and δ only sets how fast the agent orbits it.</p>
+
+  <h2><span class="n">10</span>Head-to-head with a tuned two-term drive</h2>
+  <p>The sharpest test of the claim is to build the thing we say we differ from and race it. Both
+  established approaches — empowerment + curiosity (de Abril &amp; Kanai) and the expected-free-energy sum
+  of active inference — share one structure: a <i>weighted blend</i>
+  <span class="eq"><i>R</i> = (1−β)·empowerment + β·novelty</span>
+  evaluated every step. We ran exactly this in the <i>identical</i> body-and-forgetting world, sweeping the
+  weight β, so the drive is the only thing that changes.</p>
+  <figure>
+    <img src="paper/figs/fig9_baseline.png" alt="head-to-head with the two-term baseline">
+    <figcaption><b>Figure 9.</b> (a) The baseline <i>blends</i> — both motivations contribute together, so
+    its points fill the interior of the contribution plane — whereas our gain drive <i>alternates</i>, its
+    two faces hugging the axes. (b) β is the only handle on the balance, and it trades exploration against
+    survival: too small and the agent barely ventures; too large and it ventures but starves, because the
+    baseline's exploration is not viability-gated. (c) Consequently <b>no β reaches our operating point</b> —
+    balanced exploration (46% venture) while staying alive (body margin 0.30, full coverage). Our drive
+    lands there with no weight at all, because the bottleneck gates exploration automatically.</figcaption>
+  </figure>
+  <p>This is the concrete cash value of "one functional, not a weighted sum." The blend can buy exploration
+  <i>or</i> survival, set by a dimensionless knob; it has no timescale and no win-win. Ours buys both, set by
+  a physical rate, with nothing to tune.</p>
+
+  <h2><span class="n">11</span>It does not depend on the observable</h2>
+  <p>A natural worry: maybe this is just foraging dressed up, sensitive to our choice of "empowerment over
+  position." So we recomputed everything with empowerment over the agent's <i>sensor readings</i> (the
+  faithful Braitenberg quantity) — a field that is genuinely different from the positional one.</p>
+  <figure>
+    <img src="paper/figs/fig8_sensor.png" alt="sensor-state robustness">
+    <figcaption><b>Figure 8.</b> The sensor-state field (a) is structurally different from the positional
+    field — they correlate at only <i>r</i>=0.13 (b). Yet the same two-face alternation emerges (c), with
+    the same period and full coverage. The rhythm is a property of the gain-plus-bottleneck structure, not
+    of which empowerment is maximized.</figcaption>
+  </figure>
+
+  <h2><span class="n">12</span>The epistemic face is empowerment gain on a <i>learned</i> model</h2>
+  <p>A fair objection to "one functional, two faces" is that the somatic face uses real empowerment while
+  the epistemic face is a visit-count proxy — so maybe the epistemic term is just a relabelled novelty
+  bonus. To answer it directly we gave the agent a tabular model of its world, <i>p̂</i>(<i>s'</i>|<i>s,a</i>)
+  (it knows its own body channel but must learn the layout), and computed empowerment <i>on that learned
+  model</i>.</p>
+  <figure>
+    <img src="paper/figs/fig10_learned.png" alt="empowerment on a learned model">
+    <figcaption><b>Figure 10.</b> (a) Empowerment-on-<i>p̂</i> is a genuine learnable quantity: as coverage
+    grows it converges to the true field (spatial correlation → 0.99). (b) The realized increment
+    <i>Δ</i><i>Ê</i><sub>p</sub> when an observation is folded in is concentrated in venture phases — the
+    agent learns ~1.9× more empowerment per window while exploring than while consolidating — so the
+    epistemic face is <i>literally</i> a change in computed empowerment, fired exactly when it ventures.
+    (c) The cheap visit-count proxy the rest of the paper uses tracks that literal quantity closely
+    (<i>r</i>=0.79).</figcaption>
+  </figure>
+  <p>So the two faces are increments of the same functional after all: the proxy is a fast, faithful
+  stand-in, not a second drive. (We act on the proxy for speed; a controller that plans directly on
+  <i>Ê</i><sub>p</sub> is also implemented — it needs a familiarization phase and is markedly heavier and
+  more fragile, so the proxy validation above is our clean evidence rather than a fully model-based run.)</p>
+
+  <h2><span class="n">13</span>The viability gate, examined</h2>
+  <p>The one piece of machinery a critic should press hardest on is the epistemic gate's return-budget,
+  <i>b</i><sub>viab</sub> = <i>b</i> − δ(τ + <i>d</i><sub>home</sub>): it puts distance-to-home inside an
+  empowerment formula, which reads like a survival objective bolted on. We took the objection seriously
+  and tried to remove it — to let viability <i>emerge</i> from planning instead. It does not work cheaply,
+  and seeing why vindicates the gate.</p>
+  <p>We replaced the gate with a planner that simulates the body forward in (<i>s</i>,<i>b</i>) under the
+  agent's own policy and values each action by its rolled-out empowerment gain — with no distance-to-home
+  anywhere (<code>RolloutPlanner</code>). In principle an excursion you cannot afford should expose itself:
+  the body runs down, empowerment collapses through the bottleneck, the rollout's tail is worthless.</p>
+  <figure>
+    <img src="paper/figs/fig11_viability.png" alt="viability gate examined">
+    <figcaption><b>Figure 11.</b> (a) It fails. Body depletion is a <i>slow</i> variable — ~1/δ ≈ 170
+    steps from full to empty — so a rollout must look nearly that far ahead, almost undiscounted, to see a
+    starvation it is about to cause. At tractable horizons the agent sees only near-term exploration gains:
+    it over-commits (~90% venture at every <i>H</i>, against the gate's balanced 52%) and starves
+    intermittently, even at <i>H</i>≈1/δ and hundreds of times the per-step cost. (b) The gate is not an
+    extra objective — it is the §2 serial bottleneck applied <i>over time</i>: the tightest the body gets
+    on an excursion is just before it next refuels, so realizable empowerment is gated by <i>E</i> at that
+    minimum. The shaded gap is the metabolic cost of the trip.</figcaption>
+  </figure>
+  <p>So <i>d</i><sub>home</sub> is not a survival budget; it is the time to the nearest sustaining state —
+  where the trajectory's body-minimum falls. And the whole point of the gate is tractability: it is
+  <i>assembled from cached quantities</i> — a shortest-path distance computed once, and the empowerment
+  table read off at the round-trip body level — composed in constant time to return the answer that the
+  intractable rollout would have computed honestly. "Cache" almost captures it, except a cache merely
+  stores a result you would otherwise recompute the same way, whereas the gate replaces the
+  <i>algorithm</i>: the faithful computation is "simulate the body forward and see whether I strand," and
+  the gate is a closed form that gives the same verdict without the simulation. The genuinely inert caches
+  in the agent — the empowerment table, the distance map — nobody would call smuggled objectives; the gate
+  is the interesting case precisely because it is a shortcut, not just storage.</p>
+  <p>Now suppose a critic digs in: the gate still <i>encodes</i> "get home before you starve," and that is a
+  reward by another name. They are right — and the uncomfortable truth is that the same is true of
+  <i>any</i> agent that plans, including one with a learned value function. A value estimate is just a
+  compressed summary of the future, and a summary of the future is interconvertible with a reward: by the
+  shaping equivalence you can always fold a long-horizon value term into the per-step reward without
+  changing what the agent does. So "you smuggled in a reward" is not a falsifiable charge. It lands equally
+  on a hand-derived gate, a cached table, and a neural critic — on everything that looks past the next
+  step. Conceding it costs nothing.</p>
+  <p>What the objection really does is move the question to the one that can actually be answered: not
+  <i>is this reward-shaped?</i> (everything that anticipates the future is), but <i>is the quantity forced
+  by the body and the empowerment functional, or is it a free parameter I chose?</i> On that test the gate
+  passes. <i>d</i><sub>home</sub> is not a number we picked — it is the literal metabolic cost of the trip,
+  fixed by the arena and δ, with no coefficient to turn. The genuinely smuggled objective in this
+  literature is the one we measured against in §10: the weight β that hand-sets the explore/exploit
+  balance. That is a free dial; <i>d</i><sub>home</sub> is a measurement. So the distinction that survives
+  scrutiny is not reward-versus-not — a bar nothing clears — but <b>derived versus posited</b>, and on that
+  test the gate is derived.</p>
+
+  <div class="partdiv">
+    <div class="pl">Part II</div>
+    <div class="pt">A direction: where to explore</div>
+    <div class="pd">The same quantity, read as <i>learning progress</i> on a learned model, points curiosity at
+    the frontier of what can be controlled — ignoring the noisy TV, and climbing a developmental curriculum
+    when the world has the structure for one.</div>
+  </div>
+
+  <h2><span class="n">14</span>The question again — where does curiosity point?</h2>
+  <p>A child masters basic motor skills before attempting harder ones; learners gravitate to tasks of
+  intermediate difficulty — not too easy, not too hard. The classic computational account is
+  <span style="font-family:Helvetica Neue,Arial,sans-serif">learning progress</span> (Oudeyer &amp;
+  Kaplan): be drawn to where you are <i>improving fastest</i>, which is automatically the frontier between
+  the mastered and the unlearnable. Its well-known failure mode, and the reason it must be a <i>derivative</i>
+  rather than a level, is the <b>noisy TV</b>: a screen of static is maximally surprising and stays that way,
+  so a curiosity that chases surprise gets stuck watching it forever.</p>
+  <p>Part I drove exploration with empowerment — an agent's information-theoretic control over its own
+  future. Here we ask: does the <i>learning-progress</i> version of empowerment — the recent rate of realized
+  gain in computed empowerment, on a learned model (§12) — show the zone-of-proximal-development behaviour,
+  and does it dodge the noisy TV? And it should dodge it for a reason prediction-error curiosity can't claim:
+  empowerment is <b>control-grounded</b>. A noisy TV is not just unpredictable — it is <i>uncontrollable</i>,
+  so there is no empowerment to be had there, learnable or not.</p>
+
+  <h2><span class="n">15</span>The arena — built to defeat the obvious confound</h2>
+  <p>In a grid, “harder” usually means “farther,” and an agent that prefers near regions would <i>look</i>
+  developmental without being about difficulty at all. So the arena is a hub with four chambers on
+  <b>equal-length</b> corridors. Two are open <span class="lpt">frontier</span> chambers (rich, learnable
+  control); one is a small <i>easy</i> pocket (mastered fast); one is the <b>noisy TV</b> — structurally
+  identical to a frontier chamber, the same distance from the hub, but with high intrinsic action noise.
+  Anything the agent prefers here is about controllability, not distance.</p>
+
+  <h2><span class="n">16</span>Result: it forages control, and ignores the noise</h2>
+  <figure>
+    <img src="paper/figs/prog1_noisytv.png" alt="noisy-TV result">
+    <figcaption><b>Figure 13.</b> Where each agent spends its time (log dwell). (a) The
+    <span class="lpt">learning-progress</span> agent lights up the controllable frontier and leaves the
+    noise chamber dark. (b) The <span class="nvt">surprise</span> agent is a bright blob <i>inside</i> the
+    noise chamber — trapped. (c) Across four seeds: learning-progress spends 54% on controllable regions
+    and 10% on the noise; surprise spends 5% and 87%. Same geometry, same distances — only controllability
+    differs.</figcaption>
+  </figure>
+
+  <h2><span class="n">17</span>Why: empowerment is control-grounded</h2>
+  <figure>
+    <img src="paper/figs/prog2_mechanism.png" alt="mechanism">
+    <figcaption><b>Figure 14.</b> (a) As the agent observes, empowerment-on-the-learned-model rises for the
+    controllable chambers (you learn to control them) but <i>floors</i> for the noisy TV — there is little
+    control to be had, learn as you might. (b) The two curiosity signals diverge: <span class="nvt">surprise</span>
+    stays high on the noise (the trap), while <span class="lpt">learning-progress</span> — the realized rate
+    of empowerment gain — spikes on the frontier and collapses to zero on the noise. Empowerment avoids the
+    noisy TV not by a tuned penalty but because uncontrollable means ungainable.</figcaption>
+  </figure>
+  <p>One ingredient turned out to be essential and worth naming: <b>motor babbling</b>. A purely
+  goal-directed planner only ever executes the one action that moves it toward its target, so it never
+  learns what its <i>other</i> actions do, and every region stays uncertain forever. The agent has to try
+  its actions — to babble — to learn local control. That repetition-to-master is not a nuisance; it is the
+  developmental story in miniature.</p>
+
+  <h2><span class="n">18</span>Watch the trap appear</h2>
+  <p>The agent runs live in your browser. Switch the drive from <span class="lpt">learning-progress</span>
+  to <span class="nvt">surprise</span> and watch it march into the noise chamber and stay. Turn the noise
+  slider down to zero and the “noisy TV” becomes an ordinary learnable room — and the surprise agent stops
+  getting stuck.</p>
+
+  <div class="demo">
+    <div class="demogrid">
+      <div class="left"><canvas id="progArena" width="420" height="420"></canvas></div>
+      <div class="right">
+        <div class="verdict" id="verdict">learning-progress: forages what it can control</div>
+        <div class="ctrl"><label>drive</label>
+          <select id="progMode">
+            <option value="lp">empowerment learning-progress</option>
+            <option value="surprise">surprise / novelty</option>
+          </select></div>
+        <div class="lbl"><span style="color:#5fd0c8">time on controllable</span><span class="val" id="learnP">0%</span></div>
+        <div class="meter"><div id="learnBar" style="background:#0f7173"></div></div>
+        <div class="lbl"><span style="color:#ff8a9e">time on the noisy TV</span><span class="val" id="noiseP">0%</span></div>
+        <div class="meter"><div id="noiseBar" style="background:#e94560"></div></div>
+        <div class="ctrl"><label>noisy-TV noise level = <span class="val" id="progNoisev">0.50</span></label>
+          <input type="range" id="progNoise" min="0" max="0.9" step="0.05" value="0.5"></div>
+        <div class="btns"><button id="progPlay">⏸ pause</button><button id="progReset">↺ reset</button></div>
+      </div>
+    </div>
+  </div>
+  <figcaption style="margin-bottom:6px">Cells are coloured by the active drive's value. The
+  learning-progress agent's frontier brightens where it is gaining control and fades as regions are
+  mastered; the surprise agent's noise chamber never fades.</figcaption>
+
+  <h2><span class="n">19</span>Stages need dependencies — so we built one</h2>
+  <p>The preference is half the developmental story. The other half is <b>sequencing</b> — a curriculum that
+  marches through stages of increasing complexity. Our first attempt at that, a ladder of chambers at
+  increasing distance, did <i>not</i> produce stages, and the reason is the most useful thing it taught: a
+  curriculum needs <b>prerequisite dependencies</b>. In that ladder the chambers were independent — each
+  region's empowerment depended only on its own local dynamics, so mastering one never unlocked another, and
+  there was simply no curriculum to discover. The mastery order was set by exploration noise, not by
+  competence (predictably so — it was the wrong environment).</p>
+  <p>So we built the right one: a <b>switch–gate chain</b>. Rooms R0→R1→R2 separated by gates; gate <i>k</i>
+  opens only when the agent operates switch <i>k</i> in room R<i>k</i>. The state is augmented to
+  <code>(cell, gate-bits)</code> and empowerment is computed over it. Now R1 is genuinely unreachable — and
+  has zero empowerment — until the agent's model has learned that switch&nbsp;1 opens gate&nbsp;1. Mastering
+  the “tool” unlocks downstream control. This is the prerequisite the independent chambers lacked, and it is
+  exactly the tool-use dependency that grounds it in the empowerment literature.</p>
+  <figure>
+    <img src="paper/figs/prog3_stages.png" alt="dependency-driven stages">
+    <figcaption><b>Figure 15.</b> (a) The dependency creates an <b>empowerment staircase</b>: the empowerment
+    realizable from the start jumps from 2.58 to 4.17 bits the moment the model learns that switch&nbsp;1
+    opens gate&nbsp;1 — a 1.58-bit unlock — and steps again with the next prerequisite. With independent
+    chambers (our earlier ladder) the line is flat: nothing gates anything. (b) The agent climbs the
+    staircase in a <b>forced order</b> (R0→R1→R2) — it physically cannot reach switch&nbsp;<i>k</i>+1 before
+    operating switch&nbsp;<i>k</i> — driven by the empowerment-progress of each unlock. That is a curriculum
+    emerging from one control-grounded quantity plus the world's dependency structure, with no schedule.</figcaption>
+  </figure>
+  <p>Two bounds, stated honestly. First, the <i>n</i>-step empowerment horizon caps how far an unlock
+  propagates to a fixed start: rooms beyond the horizon don't register in the from-start view, so the
+  staircase visible from one vantage point saturates after the first unlock or two (the <i>acquisition
+  order</i>, by contrast, stays cleanly forced however long the chain). Second, easy switches make the
+  stages temporally close; harder switches spread them out. Both are tunable and cost only compute. The
+  developmental sequencing we could not get from a homogeneous world appears as soon as the world has the
+  dependency structure that sequencing requires — which is the right answer, not a workaround.</p>
+
+  <div class="partdiv">
+    <div class="pl">Part III</div>
+    <div class="pt">The fuller picture</div>
+    <div class="pd">Where this family of empowerment drives sits among the reward-free principles — what is
+    genuinely new, and why control-grounding plus a derivative escapes the paradoxes that trap the others.</div>
+  </div>
+
+  <h2><span class="n">20</span>What is, and isn't, new — critically</h2>
+  <p>It would be easy to oversell this. Let us be precise about the standing on others' shoulders, then
+  about the genuinely new part, then about where a skeptic is right.</p>
+
+  <h3>Not new.</h3>
+  <p>Empowerment as an intrinsic drive (Klyubin–Polani–Nehaniv; Salge, Glackin &amp; Polani), empowerment
+  under state-dependent noise (Salge &amp; Polani), the combination of empowerment with a curiosity term
+  (de Abril &amp; Kanai, 2018), the epistemic/pragmatic decomposition of behaviour (the expected-free-energy
+  account of active inference), and relaxation oscillators themselves (the van der Pol motif) are all
+  prior art. For the developmental half (Part II): learning progress (Oudeyer &amp; Kaplan) and compression
+  progress (Schmidhuber's POWERPLAY) as drivers of staged curricula; the noisy-TV failure of prediction-error
+  curiosity; and empowerment combined with skills and tools (Hierarchical Empowerment, Levy et al. 2023;
+  Object Empowerment, Rasheed, Polani &amp; Catenacci Volpi 2023) — though, we checked, in ways that do not
+  show staged emergence. We reuse all of it.</p>
+
+  <h3>The contribution, stated modestly.</h3>
+  <ul>
+    <li><b>Explore/exploit as temporal structure from one functional.</b> The established hybrids produce a
+    <i>static weighted sum</i> of two terms each step. Here the two behaviours are <i>phases</i> of a single
+    empowerment-gain appetite, mutually exclusive in time (Fig.&nbsp;5b), and the balance is a physical
+    timescale (Fig.&nbsp;6a) rather than a coefficient. Raced against that weighted sum in the same world
+    (Fig.&nbsp;9), our drive reaches a balanced-and-alive operating point that <i>no</i> value of the
+    baseline's weight β attains. That is a falsifiable structural difference, and it holds.</li>
+    <li><b>Homeostasis without a hunger term.</b> "Hunger" is the body-binding regime of the empowerment
+    bottleneck; the satiation→exploration flip is a bottleneck handover via the data-processing
+    inequality (Fig.&nbsp;1b), not a switch we wrote.</li>
+    <li><b>A viability-gated epistemic face</b> that makes "consolidate before you can explore" a
+    consequence of the same inequality, not a rule.</li>
+    <li><b>Robustness to the observable</b> (Fig.&nbsp;8): the rhythm is identical under positional and
+    sensor-state empowerment despite those measures differing (<i>r</i>=0.13). This is the strongest single
+    defence against "it's just foraging."</li>
+    <li><b>Control-grounded learning progress</b> (Part II). Empowerment's <i>progress</i> on a learned model
+    gives the zone-of-proximal-development preference and dodges the noisy TV (Figs.&nbsp;13–14) — for a
+    sturdier reason than prediction-based curiosity: not “I can't reduce my error here” but “there is no
+    control to be had here,” which also rejects what you could predict but not influence.</li>
+    <li><b>A developmental curriculum from the same quantity.</b> Given a world with prerequisite (tool-use)
+    structure, that drive climbs a staircase of capabilities in a forced order with no schedule
+    (Fig.&nbsp;15) — to our knowledge the first staged developmental emergence from empowerment-progress, the
+    control-grounded analog of Oudeyer's Playground.</li>
+  </ul>
+
+  <h3>Where the skeptic is right.</h3>
+  <ul>
+    <li><b>It is a toy.</b> 93 cells, known true dynamics, a short planning horizon. This is an existence
+    proof and a reframing, not a benchmark or a learning result at scale.</li>
+    <li><b>"Single functional" — now demonstrated, with one residual shortcut.</b> We initially leaned on
+    an <i>argument</i> that the epistemic face is a face of Δ<i>E</i>; §12 turns that argument into a
+    measurement — empowerment on a learned model converges to truth (corr 0.99), and its realized
+    increment tracks the proxy at <i>r</i>=0.79 (Fig.&nbsp;10). The residual shortcut is honest: the agent
+    <i>acts</i> on the fast proxy, validated against the literal quantity rather than planning on the
+    latter every step.</li>
+    <li><b>The viability gate does real work</b> — and §13 examines it head-on. We tried to replace it with
+    forward rollouts and failed: body depletion is a slow variable beyond any tractable horizon (Fig.&nbsp;11),
+    so the gate is the §2 bottleneck applied over time. It does cast a reward-shaped shadow — every
+    long-horizon value estimate does — but the test that matters is <i>derived versus posited</i>, and
+    <i>d</i><sub>home</sub> is a measured metabolic cost, not a free dial. The planner's discount is the one
+    genuine modeling choice a critic can still press on.</li>
+    <li><b>One prediction did not survive contact.</b> The design anticipated the period scaling with the
+    forgetting rate λ as well as δ. It did not: δ sets the period; λ sets exploration breadth. We report
+    what happened, not what was hoped.</li>
+    <li><b>Oscillation alone is cheap.</b> A level drive with depletion already cycles (Fig.&nbsp;2). The
+    non-trivial content is that the <i>exploratory</i> phase is epistemically driven (Fig.&nbsp;5), which is
+    what separates this from plain refuel-and-leave foraging.</li>
+    <li><b>The curriculum is structure-dependent and shallow.</b> The developmental staircase appears only
+    when the world supplies prerequisite dependencies (§19) — a homogeneous arena yields none — and the
+    <i>n</i>-step horizon caps how far an unlock propagates, so the from-start staircase saturates after an
+    unlock or two (the acquisition <i>order</i> stays cleanly forced). And the body is relaxed in Part II,
+    isolating <i>where</i> curiosity points from <i>when</i> to refuel.</li>
+  </ul>
+
+  <h3>Why it might matter anyway.</h3>
+  <p>If a two-phase explore/exploit schedule can be a <i>consequence</i> of one viability-grounded
+  information measure plus slow body dynamics, then two modest things follow. For artificial agents, the
+  explore/exploit schedule need not be a hyperparameter to anneal — it can fall out of an embodiment with a
+  metabolic cost. For biology, the felt rhythm of "consolidate the basics, then venture" gets a candidate
+  normative basis: the conservative phase is not opposed to growth but its precondition, because control
+  gains are unrealizable on a depleted platform. Both are extrapolations from a 93-cell toy, and we hold
+  them loosely.</p>
+
+  <h2><span class="n">21</span>The landscape: empowerment among the reward-free principles</h2>
+  <p>The sharpest neighbour to this work is the <b>Maximum Occupancy Principle</b> (Ramírez-Ruiz, Grytskyy,
+  Mastrogiuseppe, Habib &amp; Moreno-Bote, <i>Nat. Commun.</i> 2024). MOP is also reward-free, but it proposes
+  a different north star: behave so as to <i>maximally occupy future action-state path space</i> — formally,
+  maximize the discounted future entropy of your own action-state trajectories,
+  <i>V</i>(<i>s</i>)=𝔼[Σ&nbsp;γ<sup><i>t</i></sup>(α<i>H</i>(<i>A</i>|<i>s<sub>t</sub></i>) +
+  β<i>H</i>(<i>S'</i>|<i>s<sub>t</sub>,a<sub>t</sub></i>))], yielding a soft (Boltzmann) policy. From this one
+  quantity they get strikingly lively behaviour — exploration that visits everywhere, “dancing,” hide-and-seek,
+  even a basic altruism — and survival <i>for free</i>: absorbing “death” states promise zero future entropy,
+  so a MOP agent shuns them with no survival term. Tellingly, they single out empowerment as the foil,
+  reporting that empowerment agents “collapse to deterministic policies with little behavioural variability,”
+  parking at the highest-control state and staying there (the same parking §5's level drive shows).</p>
+  <p>But MOP's state-entropy term, <i>H</i>(<i>S'</i>|<i>s,a</i>), is exactly the next-state randomness that
+  empowerment <i>subtracts</i> — the noise. In a world with a genuine noise source, MOP should therefore be
+  <i>drawn</i> to the noisy TV: maximal state entropy is maximal occupancy. So we asked the natural question:
+  what if occupancy were measured over <i>controllable</i> futures instead of all futures? We ran MOP's own
+  soft value iteration in our noise arena under two rewards — MOP's <i>H</i>(<i>S'</i>) versus the empowerment
+  <i>E</i>(<i>s</i>) (controllable reach) — changing nothing else.</p>
+  <figure>
+    <img src="paper/figs/prog4_mop.png" alt="MOP vs control-occupancy">
+    <figcaption><b>Figure 16.</b> (a) Same Boltzmann machinery, different reward: rewarding next-state entropy
+    (MOP) spends <b>98%</b> of the time on the noisy TV; rewarding empowerment spends <b>0%</b> — and still
+    roams (it occupies the highest-control hub variably, not a single parked cell). (b) A map of the
+    paradoxes. Two independent routes ignore the noisy TV — <i>control-grounding</i> (right column: a noisy
+    region has no empowerment) and <i>taking the derivative</i> (top row: learning <i>progress</i> on
+    unlearnable noise is zero, the Oudeyer–Schmidhuber fix). MOP and raw info-gain sit alone in the corner
+    with neither protection; empowerment's own failure — collapse to a fixed point (“the throne”) — lives in
+    the control/level corner, and the <i>derivative</i> is what escapes it (the corner that also carries the
+    curriculum of §19 and Part I's explore/exploit rhythm).</figcaption>
+  </figure>
+  <p>So a control-weighted occupancy keeps what is attractive about MOP — the lively, anti-parking, reward-free
+  drive — while shedding its blind spot. More broadly, the comparison resolves into two axes (Fig.&nbsp;16b):
+  <b>what you reward</b> (occupancy/entropy vs. control) decides whether you chase or ignore the noisy TV, and
+  <b>level vs. progress</b> (a quantity vs. its derivative) decides whether you settle into stationary
+  behaviour or develop temporal structure — the explore/exploit rhythm of Part I, and the curriculum
+  of §19. MOP is elegant and parsimonious for survival and open-ended liveliness; empowerment is the better
+  currency when the target is competence — variety you can <i>command</i>, not merely generate.</p>
+
+  <h3>The grand roulette: the same trap, from the other side.</h3>
+  <p>This comparison sits inside a clean taxonomy. A recent review (arXiv:2601.10276, 2026) lays out a
+  <i>paradox</i> for every reward-free principle — an adversarial world that breaks it: reward maximization
+  has <b>Buridan's donkey</b> (it cannot break ties); the Free Energy Principle has the <b>dark room</b>
+  (minimize surprise and you hide in the featureless dark); information-gain has the <b>noisy TV</b>; and MOP
+  has the <b>grand roulette</b> — “a gambler encountering a grand roulette, with a myriad of possible bets,
+  will be trapped to play it <i>ad infinitum</i>,” because endless bets are endless action-state occupancy.
+  Tellingly, the review's own prescribed cure is not a new principle but <b>embodiment</b>.</p>
+  <p>Two of these paradoxes are the <i>same</i> trap once you ask about control. The noisy TV (uncontrollable
+  <i>sensory</i> diversity) and the grand roulette (uncontrollable <i>action-state</i> diversity) are both
+  <b>variety the agent does not cause</b> — and empowerment, which counts only the futures your actions
+  <i>determine</i>, is blind to both. We built MOP's nemesis to check: a control room (deterministic moves,
+  empowerment 2.3 bits) beside a gambling room (interchangeable random bets, empowerment 1.0 bit).</p>
+  <figure>
+    <img src="paper/figs/prog5_roulette.png" alt="grand roulette taxonomy">
+    <figcaption><b>Figure 17.</b> (a) Under MOP's own soft value iteration, rewarding path entropy sends the
+    agent to gamble (<b>100%</b> of its time in the roulette); rewarding empowerment keeps it in the control
+    room (<b>98%</b>) — and the trap does not depend on the number of bets, because it is the uncontrollable
+    <i>outcome</i> that snares MOP, exactly as in the noisy TV. (b) The empirical taxonomy: occupancy (MOP)
+    and curiosity/info-gain are both trapped in <i>both</i> adversarial worlds; control-grounding escapes
+    both — one antidote, because only diversity you cause counts.</figcaption>
+  </figure>
+
+  <h3>Empowerment's own paradox — and the way out.</h3>
+  <p>Honesty cuts the other way too. MOP's authors press empowerment on exactly the failure we keep meeting:
+  in a head-to-head comparison (Moreno-Bote &amp; Ramírez-Ruiz, 2023) they prove empowerment (and certain
+  Free-Energy agents) “collapse within a small repertoire of action-state trajectories or fixed points,”
+  preferring the most controllable state and <i>throning</i> there. We do not dispute it — we reproduce it
+  (the parking of §5's level drive). The throne is empowerment's paradox, the control/level corner of
+  Fig.&nbsp;16b.</p>
+  <p>The escape is precisely the review's own prescription — <b>embodiment</b> — read as a <i>derivative</i>.
+  Give empowerment a body that depletes and its value of staying decays, so the throne becomes a foraging
+  cycle (Part I); take its <i>progress</i> rather than its level and a mastered region loses all
+  pull, so the agent leaves rather than thrones, and climbs a curriculum where the world affords one (§19).
+  Either way the fixed point is dissolved by the same move MOP uses to stay lively — making the objective
+  about <i>change</i>, not <i>level</i> — but kept control-grounded, so the noisy TV and the grand roulette
+  stay powerless. That is the one corner of the map (Fig.&nbsp;16b, top-right) that escapes every paradox in
+  the box: control for the noise traps, the derivative for the throne, and a positive drive that never seeks
+  the dark room.</p>
+
+  <h2><span class="n">22</span>Methods</h2>
+
+  <h3>Environment and agent.</h3>
+  <p>The arena is a 17×9 grid: two open 5×7 basins flanking a small central chamber, joined by a corridor
+  (row 4) with walls elsewhere. The single resource sits in the central chamber, a <i>moderate</i>-empowerment
+  region — the existence condition for a completable satiation phase (§2). The agent occupies one cell and
+  has five actions {N, E, S, W, stay}; moves into walls leave it in place. Its state for the drive is
+  (cell, body integrity <i>b</i>∈[0,1]). Distances and first-steps between cells are precomputed once by BFS.</p>
+
+  <h3>The body bottleneck.</h3>
+  <p>Body integrity gates the actuators: with probability <i>g</i>(<i>b</i>) = 1/(1+exp(14(<i>b</i>−0.40)))
+  the commanded action is replaced by a uniform-random one. This sigmoid gives a near-zero-noise plateau at
+  high <i>b</i> (so feeding when sated yields ≈0 gain) and a steep collapse below <i>b</i>≈0.4 (so feeding
+  when hungry yields a lot). Each step <i>b</i>←<i>b</i>−δ; on the resource cell <i>b</i>←min(1, <i>b</i>+ι).
+  Because the command passes through the body channel and then the (deterministic) world, realizable
+  empowerment is the capacity of the composition and obeys the data-processing inequality (§2).</p>
+
+  <h3>Empowerment.</h3>
+  <p><i>n</i>-step empowerment (<i>n</i>=3) is the Shannon capacity max<sub><i>p</i>(<i>a<sup>n</sup></i>)</sub>
+  <i>I</i>(<i>A<sup>n</sup></i>;<i>X<sub>t+n</sub></i>) from action sequences to the future cell (or, for
+  Fig.&nbsp;8, the future sensor reading), computed exactly by Blahut–Arimoto on the body-gated <i>n</i>-step
+  transition operator. We keep two operators strictly separate: the <b>true</b> dynamics, used to generate
+  transitions, and the agent's <b>learned</b> model, used to compute the drive. The field is cached over a
+  grid of 21 body-integrity bins and recomputed only where the model or <i>b</i> changes; per-cell capacity
+  costs one Blahut–Arimoto run over the 5<sup>3</sup>=125 sequences.</p>
+
+  <h3>The single drive and the planner.</h3>
+  <p>The agent maximizes the discounted gain <i>R</i> = <i>Ê</i>(after) − <i>Ê</i>(before), which has two
+  faces of the one functional, summed with coefficient one (no mixing weight): a <span class="tealt">somatic</span>
+  face (the empowerment restored by refuelling, nonzero only at the resource, large only when hungry) and an
+  <span class="redt">epistemic</span> face <i>u</i>(<i>c</i>)·<i>E</i>(<i>c</i>, <i>b</i><sub>viab</sub>),
+  where <i>u</i> is model uncertainty and the body level
+  <i>b</i><sub>viab</sub>=<i>b</i>−δ(τ+<i>d</i><sub>home</sub>) is the integrity left after budgeting the
+  round trip (the §13 metabolic-cost gate). The planner is receding-horizon on shortest paths: it scores
+  every reachable cell by γ<sup>τ</sup>·(somatic+epistemic) with discount γ=0.94 and travel time τ, steps
+  one cell toward the best, executes under real actuator noise, and replans. So the period is set by physical
+  timescales (§9), not a weight.</p>
+
+  <h3>The two models of uncertainty.</h3>
+  <p>For most experiments, uncertainty is a tabular visit-count field <i>u</i>=1/(1+<i>N</i>) with
+  multiplicative forgetting <i>N</i>←λ<i>N</i> applied everywhere including the home region (so consolidation
+  re-grooves rather than refuels once). For §12 the agent instead learns a Dirichlet world model
+  <i>p̂</i>(<i>s'</i>|<i>s,a</i>) over each cell's local candidate outcomes (prior α=0.25), recomputes
+  empowerment on <i>p̂</i>, and the realized increment <i>Δ</i><i>Ê</i><sub>p</sub> validates the visit-count
+  proxy (corr 0.79). Baselines: the §10 two-term drive (1−β)·<i>E</i>+β·novelty, and the §13
+  <code>RolloutPlanner</code> that simulates the body forward in (cell,&nbsp;<i>b</i>) with no
+  <i>d</i><sub>home</sub> term.</p>
+
+  <h3>Parameters and reproducibility.</h3>
+  <p>Headline run: δ=0.006, ι=0.04, λ=0.996, γ=0.94, <i>n</i>=3. Scaling sweeps vary δ and λ; the existence
+  band and Goldilocks results map δ. Empowerment values are reported in bits; periods in steps. The full
+  source — Python for the science (Blahut–Arimoto, the learned model, the planner, the rollout and reduced
+  models), vanilla JS for the live demo — reproduces every figure and the demo data from a single script,
+  <code>make_figures.py</code> (Part I).</p>
+
+  <h3>Part II — curiosity, development, and the landscape comparison.</h3>
+  <p><b>Arena and drive.</b> A hub joins four <i>equidistant</i> 3×3 chambers — two learnable frontiers, an
+  easy pocket, and a noisy chamber carrying a per-cell environmental action-noise field. Empowerment is
+  computed on the agent's <i>learned</i> Dirichlet model (the §12 machinery), so a region's value is what it
+  has so far learned to control; the drive is a per-cell exponential-moving-average (rate 0.35) of the
+  realized increment in that empowerment — learning progress. The <b>surprise</b> baseline drives on raw model
+  uncertainty <i>u</i>=1−mean<sub><i>a</i></sub> max<sub><i>s'</i></sub> <i>p̂</i>, which stays high on the
+  noisy chamber because its posterior never sharpens. <b>ε-babbling</b> (ε≈0.3, learning from the
+  <i>commanded</i> action) supplies the action exploration without which no local control is learned; the body
+  is relaxed (δ=0), isolating <i>where</i> curiosity points.</p>
+  <p><b>The dependency environment</b> (§19) augments the state to <code>(cell, gate-bits)</code> — a switch
+  latches its gate, a gate is passable only when set — and computes empowerment (<i>n</i>=4–5) over it; the
+  unlock staircase is read on an idealised operator with only the first <i>k</i> switches functional, the
+  forced order on the autonomous agent. <b>The landscape comparison</b> (§21) runs MOP's soft value iteration
+  <i>V</i>(<i>s</i>)=α·logsumexp<sub><i>a</i></sub>[(<i>r</i>+γ𝔼[<i>V'</i>])/α] (α=0.5, γ=0.95) under two
+  rewards — next-state entropy <i>H</i>(<i>S'</i>) (MOP) vs the empowerment field <i>E</i>(<i>s</i>) — on the
+  noise arena and on a small grand-roulette MDP (a control room beside a gambling room of interchangeable
+  random bets, empowerment by Blahut–Arimoto per state). Part-II figures and demo regenerate from
+  <code>make_progression_figs.py</code>; code in <code>empower/progression.py</code>,
+  <code>empower/gated.py</code>, <code>empower/paradox.py</code>, <code>demo/progression.js</code>.</p>
+
+  <div class="footer">
+    <p>Built as a minimal-model exploration of intrinsic motivation, in three parts from one quantity.
+    Empowerment after Klyubin, Polani &amp; Nehaniv (2005); empowerment+curiosity after de Abril &amp; Kanai
+    (2018); learning progress after Oudeyer &amp; Kaplan and Schmidhuber; the Maximum Occupancy Principle and
+    the grand-roulette / noisy-TV comparison after Ramírez-Ruiz et al. (<i>Nat. Commun.</i> 2024), the
+    empowerment-collapse critique after Moreno-Bote &amp; Ramírez-Ruiz (2023), and the paradox taxonomy after a
+    2026 review (arXiv:2601.10276). The explore/exploit-as-phases framing, the viability-gated epistemic face,
+    control-grounded learning progress, the empowerment-progress developmental staircase, and the
+    control-grounded resolution of the paradoxes are this paper's contribution. Code: <code>empower/</code>
+    (simulation), <code>make_figures.py</code> + <code>make_progression_figs.py</code> (figures + data),
+    <code>demo/</code> (live agents).</p>
+  </div>
+
+</div>
+<script src="demo/data.js"></script>
+<script src="demo/demo.js"></script>
+<script src="demo/prog_data.js"></script>
+<script src="demo/progression.js"></script>
+</body>
+</html>
