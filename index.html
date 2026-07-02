@@ -272,15 +272,15 @@
   <p>Strip away the spatial detail and the agent tracks a single slow variable — body integrity <i>b</i> —
   pushed by the two faces: somatic <i>σ</i>(<i>b</i>) grows as <i>b</i> falls (hunger), epistemic
   <i>w</i>·<i>E</i><sub>far</sub>(<i>b</i>) grows as <i>b</i> rises (control to spend on exploring). They
-  cross at a setpoint <i>b*</i> where the faces balance (Fig.&nbsp;12a) — and the agent's body sits right
+  cross at a setpoint <i>b*</i> where the faces balance (Fig.&nbsp;8a) — and the agent's body sits right
   there. That setpoint is not a tuned weight; it is a fixed point of the body–empowerment dynamics, set by
   the empowerment field and <i>independent of δ</i>. Around it the body relaxes at two fast-switched
-  rates — deplete at −δ, refuel at +ι (Fig.&nbsp;12b) — the signature of a relaxation oscillator. Because
+  rates — deplete at −δ, refuel at +ι (Fig.&nbsp;8b) — the signature of a relaxation oscillator. Because
   the setpoint geometry doesn't move with δ while the rate of approach does, the period is a pure metabolic
-  clock: <i>T</i>&nbsp;∝&nbsp;1/δ, in both the reduced model and the full agent (Fig.&nbsp;12c).</p>
+  clock: <i>T</i>&nbsp;∝&nbsp;1/δ, in both the reduced model and the full agent (Fig.&nbsp;8c).</p>
   <figure>
     <img src="paper/figs/fig12_reduction.png" alt="dynamical reduction to a homeostat">
-    <figcaption><b>Figure 12.</b> (a) The two faces, as functions of body integrity, cross at a setpoint
+    <figcaption><b>Figure 8.</b> (a) The two faces, as functions of body integrity, cross at a setpoint
     <i>b*</i>; the agent's body (grey histogram) lives at that crossing. (b) The body's rate of change is
     bimodal — it relaxes at exactly −δ and +ι. (c) Period vs δ for the reduced homeostat and the full
     agent: both follow slope −1.</figcaption>
@@ -319,7 +319,7 @@
   faithful Braitenberg quantity) — a field that is genuinely different from the positional one.</p>
   <figure>
     <img src="paper/figs/fig8_sensor.png" alt="sensor-state robustness">
-    <figcaption><b>Figure 8.</b> The sensor-state field (a) is structurally different from the positional
+    <figcaption><b>Figure 10.</b> The sensor-state field (a) is structurally different from the positional
     field — they correlate at only <i>r</i>=0.13 (b). Yet the same two-face alternation emerges (c), with
     the same period and full coverage. The rhythm is a property of the gain-plus-bottleneck structure, not
     of which empowerment is maximized.</figcaption>
@@ -333,7 +333,7 @@
   model</i>.</p>
   <figure>
     <img src="paper/figs/fig10_learned.png" alt="empowerment on a learned model">
-    <figcaption><b>Figure 10.</b> (a) Empowerment-on-<i>p̂</i> is a genuine learnable quantity: as coverage
+    <figcaption><b>Figure 11.</b> (a) Empowerment-on-<i>p̂</i> is a genuine learnable quantity: as coverage
     grows it converges to the true field (spatial correlation → 0.99). (b) The realized increment
     <i>Δ</i><i>Ê</i><sub>p</sub> when an observation is folded in is concentrated in venture phases — the
     agent learns ~1.9× more empowerment per window while exploring than while consolidating — so the
@@ -358,7 +358,7 @@
   the body runs down, empowerment collapses through the bottleneck, the rollout's tail is worthless.</p>
   <figure>
     <img src="paper/figs/fig11_viability.png" alt="viability gate examined">
-    <figcaption><b>Figure 11.</b> (a) It fails. Body depletion is a <i>slow</i> variable — ~1/δ ≈ 170
+    <figcaption><b>Figure 12.</b> (a) It fails. Body depletion is a <i>slow</i> variable — ~1/δ ≈ 170
     steps from full to empty — so a rollout must look nearly that far ahead, almost undiscounted, to see a
     starvation it is about to cause. At tractable horizons the agent sees only near-term exploration gains:
     it over-commits (~90% venture at every <i>H</i>, against the gate's balanced 52%) and starves
@@ -550,7 +550,7 @@
     inequality (Fig.&nbsp;1b), not a switch we wrote.</li>
     <li><b>A viability-gated epistemic face</b> that makes "consolidate before you can explore" a
     consequence of the same inequality, not a rule.</li>
-    <li><b>Robustness to the observable</b> (Fig.&nbsp;8): the rhythm is identical under positional and
+    <li><b>Robustness to the observable</b> (Fig.&nbsp;10): the rhythm is identical under positional and
     sensor-state empowerment despite those measures differing (<i>r</i>=0.13). This is the strongest single
     defence against "it's just foraging."</li>
     <li><b>Control-grounded learning progress</b> (Part II). Empowerment's <i>progress</i> on a learned model
@@ -570,11 +570,11 @@
     <li><b>"Single functional" — now demonstrated, with one residual shortcut.</b> We initially leaned on
     an <i>argument</i> that the epistemic face is a face of Δ<i>E</i>; §12 turns that argument into a
     measurement — empowerment on a learned model converges to truth (corr 0.99), and its realized
-    increment tracks the proxy at <i>r</i>=0.79 (Fig.&nbsp;10). The residual shortcut is honest: the agent
+    increment tracks the proxy at <i>r</i>=0.79 (Fig.&nbsp;11). The residual shortcut is honest: the agent
     <i>acts</i> on the fast proxy, validated against the literal quantity rather than planning on the
     latter every step.</li>
     <li><b>The viability gate does real work</b> — and §13 examines it head-on. We tried to replace it with
-    forward rollouts and failed: body depletion is a slow variable beyond any tractable horizon (Fig.&nbsp;11),
+    forward rollouts and failed: body depletion is a slow variable beyond any tractable horizon (Fig.&nbsp;12),
     so the gate is the §2 bottleneck applied over time. It does cast a reward-shaped shadow — every
     long-horizon value estimate does — but the test that matters is <i>derived versus posited</i>, and
     <i>d</i><sub>home</sub> is a measured metabolic cost, not a free dial. The planner's discount is the one
@@ -699,7 +699,7 @@
   <h3>Empowerment.</h3>
   <p><i>n</i>-step empowerment (<i>n</i>=3) is the Shannon capacity max<sub><i>p</i>(<i>a<sup>n</sup></i>)</sub>
   <i>I</i>(<i>A<sup>n</sup></i>;<i>X<sub>t+n</sub></i>) from action sequences to the future cell (or, for
-  Fig.&nbsp;8, the future sensor reading), computed exactly by Blahut–Arimoto on the body-gated <i>n</i>-step
+  Fig.&nbsp;10, the future sensor reading), computed exactly by Blahut–Arimoto on the body-gated <i>n</i>-step
   transition operator. We keep two operators strictly separate: the <b>true</b> dynamics, used to generate
   transitions, and the agent's <b>learned</b> model, used to compute the drive. The field is cached over a
   grid of 21 body-integrity bins and recomputed only where the model or <i>b</i> changes; per-cell capacity
