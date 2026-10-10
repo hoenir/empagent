@@ -1,0 +1,266 @@
+{
+ "redundant|theirs|0": {
+  "agg": {
+   "steps": 882.3333333333334,
+   "steps_sem": 162.12999845330114,
+   "died": 0.9333333333333333,
+   "died_sem": 0.046320555585310084,
+   "trips_per_1k": 11.943789435174912,
+   "trips_per_1k_sem": 0.9593899792657791,
+   "frac_on_food": 0.26948696147708867,
+   "frac_on_food_sem": 0.005892417402482081,
+   "frac_far": 0.407648724373334,
+   "frac_far_sem": 0.00602309310389706,
+   "both_sources": 0.9666666666666667,
+   "both_sources_sem": 0.033333333333333326,
+   "cells_visited": 22.066666666666666,
+   "cells_visited_sem": 0.648487778194341,
+   "state_entropy": 2.635496713244848,
+   "state_entropy_sem": 0.03842997658652711,
+   "mean_E": 22.124776736109027,
+   "mean_E_sem": 0.2437430028304441,
+   "n_episodes": 30
+  },
+  "meals": {
+   "meals": 2524,
+   "alternation": 0.13026052104208416,
+   "E_pct": [
+    11.0,
+    20.0,
+    29.0
+   ]
+  },
+  "died": 28
+ },
+ "redundant|theirs|1": {
+  "agg": {
+   "steps": 337.1333333333333,
+   "steps_sem": 57.58287846851967,
+   "died": 1.0,
+   "died_sem": 0.0,
+   "trips_per_1k": 6.192345294398196,
+   "trips_per_1k_sem": 0.8456060847452423,
+   "frac_on_food": 0.3250255019532754,
+   "frac_on_food_sem": 0.011764501435351135,
+   "frac_far": 0.32557477091808906,
+   "frac_far_sem": 0.01808837687880783,
+   "both_sources": 0.7666666666666667,
+   "both_sources_sem": 0.07854032324531728,
+   "cells_visited": 18.0,
+   "cells_visited_sem": 0.9160133513055992,
+   "state_entropy": 2.299760728867811,
+   "state_entropy_sem": 0.03932177814207974,
+   "mean_E": 22.60549830201854,
+   "mean_E_sem": 0.5098813671726968,
+   "n_episodes": 30
+  },
+  "meals": {
+   "meals": 1183,
+   "alternation": 0.054498269896193774,
+   "E_pct": [
+    16.0,
+    24.0,
+    29.0
+   ]
+  },
+  "died": 30
+ },
+ "redundant|patch|0": {
+  "agg": {
+   "steps": 2618.0,
+   "steps_sem": 155.4117408544229,
+   "died": 0.2,
+   "died_sem": 0.07427813527082075,
+   "trips_per_1k": 25.53951018027726,
+   "trips_per_1k_sem": 0.9941505324131936,
+   "frac_on_food": 0.12023330958144834,
+   "frac_on_food_sem": 0.00099292784009827,
+   "frac_far": 0.6347392829891294,
+   "frac_far_sem": 0.004717792756741709,
+   "both_sources": 0.9666666666666667,
+   "both_sources_sem": 0.033333333333333326,
+   "cells_visited": 24.566666666666666,
+   "cells_visited_sem": 0.36729309081357214,
+   "state_entropy": 2.9899853764294453,
+   "state_entropy_sem": 0.017124708606831747,
+   "mean_E": 17.64848948781835,
+   "mean_E_sem": 0.09883734725863198,
+   "n_episodes": 30
+  },
+  "meals": {
+   "meals": 5832,
+   "alternation": 0.36177180282661153,
+   "E_pct": [
+    3.0,
+    12.0,
+    23.0
+   ]
+  },
+  "died": 6
+ },
+ "redundant|patch|1": {
+  "agg": {
+   "steps": 1343.7666666666667,
+   "steps_sem": 202.76941030340168,
+   "died": 0.7666666666666667,
+   "died_sem": 0.0785403232453173,
+   "trips_per_1k": 31.20075590577907,
+   "trips_per_1k_sem": 1.4888215742422886,
+   "frac_on_food": 0.1366990853538626,
+   "frac_on_food_sem": 0.006403294122829319,
+   "frac_far": 0.5724923901480747,
+   "frac_far_sem": 0.014963020402195193,
+   "both_sources": 0.9666666666666667,
+   "both_sources_sem": 0.033333333333333326,
+   "cells_visited": 23.466666666666665,
+   "cells_visited_sem": 0.5964132898087838,
+   "state_entropy": 2.8655757983400076,
+   "state_entropy_sem": 0.035308392336470276,
+   "mean_E": 23.240906497335335,
+   "mean_E_sem": 0.30235078025806206,
+   "n_episodes": 30
+  },
+  "meals": {
+   "meals": 3518,
+   "alternation": 0.38320435654915447,
+   "E_pct": [
+    16.0,
+    19.0,
+    27.0
+   ]
+  },
+  "died": 23
+ },
+ "legal|theirs|0": {
+  "agg": {
+   "steps": 1360.8666666666666,
+   "steps_sem": 201.88988539239602,
+   "died": 0.8,
+   "died_sem": 0.07427813527082075,
+   "trips_per_1k": 2.956667731565368,
+   "trips_per_1k_sem": 0.39504230472264995,
+   "frac_on_food": 0.49878818967993815,
+   "frac_on_food_sem": 0.010066764926698273,
+   "frac_far": 0.18558287754444525,
+   "frac_far_sem": 0.008493974472187379,
+   "both_sources": 0.8,
+   "both_sources_sem": 0.07427813527082075,
+   "cells_visited": 19.7,
+   "cells_visited_sem": 1.1317263793431471,
+   "state_entropy": 2.003148305918295,
+   "state_entropy_sem": 0.06633299563795284,
+   "mean_E": 23.808198470462553,
+   "mean_E_sem": 0.4743278969443287,
+   "n_episodes": 30
+  },
+  "meals": {
+   "meals": 4652,
+   "alternation": 0.027471338957386977,
+   "E_pct": [
+    15.0,
+    24.0,
+    29.0
+   ]
+  },
+  "died": 24
+ },
+ "legal|theirs|1": {
+  "agg": {
+   "steps": 688.1666666666666,
+   "steps_sem": 107.14583555429655,
+   "died": 1.0,
+   "died_sem": 0.0,
+   "trips_per_1k": 0.4295393677077058,
+   "trips_per_1k_sem": 0.13576720475985365,
+   "frac_on_food": 0.6170821516539744,
+   "frac_on_food_sem": 0.010345806063053213,
+   "frac_far": 0.10151975763081311,
+   "frac_far_sem": 0.006677764952592721,
+   "both_sources": 0.3,
+   "both_sources_sem": 0.08509629433967632,
+   "cells_visited": 12.733333333333333,
+   "cells_visited_sem": 0.8413636076670499,
+   "state_entropy": 1.3729026166411848,
+   "state_entropy_sem": 0.04705574293019448,
+   "mean_E": 25.491998900759675,
+   "mean_E_sem": 0.17104716045987345,
+   "n_episodes": 30
+  },
+  "meals": {
+   "meals": 2664,
+   "alternation": 0.004555808656036446,
+   "E_pct": [
+    19.0,
+    26.0,
+    29.0
+   ]
+  },
+  "died": 30
+ },
+ "legal|patch|0": {
+  "agg": {
+   "steps": 2988.3,
+   "steps_sem": 11.7,
+   "died": 0.03333333333333333,
+   "died_sem": 0.03333333333333333,
+   "trips_per_1k": 16.026223732225997,
+   "trips_per_1k_sem": 0.39799395663971504,
+   "frac_on_food": 0.25655415880206367,
+   "frac_on_food_sem": 0.0022509802934876978,
+   "frac_far": 0.43687781552787214,
+   "frac_far_sem": 0.0030507687059717803,
+   "both_sources": 1.0,
+   "both_sources_sem": 0.0,
+   "cells_visited": 25.0,
+   "cells_visited_sem": 0.0,
+   "state_entropy": 2.8941852650684656,
+   "state_entropy_sem": 0.005161459435771802,
+   "mean_E": 20.472473272933183,
+   "mean_E_sem": 0.08097705888194781,
+   "n_episodes": 30
+  },
+  "meals": {
+   "meals": 8248,
+   "alternation": 0.1747383791676807,
+   "E_pct": [
+    6.0,
+    18.0,
+    28.0
+   ]
+  },
+  "died": 1
+ },
+ "legal|patch|1": {
+  "agg": {
+   "steps": 1331.2666666666667,
+   "steps_sem": 200.77601709901904,
+   "died": 0.8,
+   "died_sem": 0.07427813527082075,
+   "trips_per_1k": 13.68350120054976,
+   "trips_per_1k_sem": 1.0308139010189843,
+   "frac_on_food": 0.30477164987773275,
+   "frac_on_food_sem": 0.008140181993703602,
+   "frac_far": 0.34233407384473274,
+   "frac_far_sem": 0.0072445178564581065,
+   "both_sources": 0.9,
+   "both_sources_sem": 0.055708601453115555,
+   "cells_visited": 22.5,
+   "cells_visited_sem": 0.7771891587675082,
+   "state_entropy": 2.557412622589506,
+   "state_entropy_sem": 0.04465856281486593,
+   "mean_E": 23.82179549265128,
+   "mean_E_sem": 0.263949528419396,
+   "n_episodes": 30
+  },
+  "meals": {
+   "meals": 4257,
+   "alternation": 0.14241779039507926,
+   "E_pct": [
+    16.0,
+    21.0,
+    28.0
+   ]
+  },
+  "died": 24
+ }
+}

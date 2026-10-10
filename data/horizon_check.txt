@@ -1,0 +1,4 @@
+n=3  food0 3.771  neighbour(0,1) 4.058  diag(1,1) 4.158  centre 4.392   peak=centre  (0s)
+n=4  food0 4.509  neighbour(0,1) 4.687  diag(1,1) 4.632  centre 4.644   peak=neighbour(0,1)  (2s)
+n=5  food0 5.033  neighbour(0,1) 5.159  diag(1,1) 4.911  centre 4.716   peak=neighbour(0,1)  (13s)
+n=6  food0 5.432  neighbour(0,1) 5.497  diag(1,1) 5.182  centre 4.902   peak=neighbour(0,1)  (84s)

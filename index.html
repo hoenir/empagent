@@ -103,7 +103,7 @@
     structure, climbs a developmental curriculum with no schedule. <b>Part III:</b> because empowerment counts
     only the futures you <i>cause</i>, it sidesteps the noisy-TV and grand-roulette traps that snare
     information-gain and maximum-occupancy — and the move that makes it lively rather than throned, taking a
-    derivative and embodying it, is the one corner of the landscape that escapes every paradox.</p>
+    derivative and embodying it, is the one corner of the landscape that escapes every paradox. Finally, on a foraging testbed built by MOP's own authors, the body bottleneck alone turns their starving empowerment agent into one that eats at a set point, and where switching food sources pays it switches every time; MOP's <i>values</i> prescribe the same strategy, and what separates the two in behaviour is the variability MOP prescribes.</p>
   </div>
 
   <div class="partdiv">
@@ -590,6 +590,10 @@
     <i>n</i>-step horizon caps how far an unlock propagates, so the from-start staircase saturates after an
     unlock or two (the acquisition <i>order</i> stays cleanly forced). And the body is relaxed in Part II,
     isolating <i>where</i> curiosity points from <i>when</i> to refuel.</li>
+    <li><b>On someone else's testbed the support is narrower</b> (§22). The body bottleneck carries over
+    cleanly; the venture phase is not tested there; without a body, empowerment eats only at the last
+    possible step; and MOP's value function reaches the same foraging strategy and is the better
+    homeostat.</li>
   </ul>
 
   <h3>Why it might matter anyway.</h3>
@@ -637,7 +641,7 @@
   <b>level vs. progress</b> (a quantity vs. its derivative) decides whether you settle into stationary
   behaviour or develop temporal structure — the explore/exploit rhythm of Part I, and the curriculum
   of §19. MOP is elegant and parsimonious for survival and open-ended liveliness; empowerment is the better
-  currency when the target is competence — variety you can <i>command</i>, not merely generate.</p>
+  currency when the target is competence — variety you can <i>command</i>, not merely generate. §22 puts the two side by side on a foraging task with no trap in it, and finds their values closer than this map suggests.</p>
 
   <h3>The grand roulette: the same trap, from the other side.</h3>
   <p>This comparison sits inside a clean taxonomy. A recent review (arXiv:2601.10276, 2026) lays out a
@@ -679,7 +683,144 @@
   the box: control for the noise traps, the derivative for the throne, and a positive drive that never seeks
   the dark room.</p>
 
-  <h2><span class="n">22</span>Methods</h2>
+  <h2><span class="n">22</span>A test on someone else's ground</h2>
+  <p>Everything so far ran in arenas we built. Mylonas &amp; Moreno-Bote (arXiv:2609.39342, IWAI 2026) offer a
+  test we did not design: a 5×5 grid with a food source in two opposite corners, an energy store (0–30, −1 per
+  step, +15 per meal, death at 0), and sources that empty and refill stochastically, observed only by standing
+  on them. They compare MOP, active inference and empowerment there and report that MOP alternates between
+  the sources, with an energy-dependent switch between wide excursions when fed and food-seeking when hungry,
+  while empowerment “reaches a food source and performs limited local exploration,” like active inference.
+  They attribute this to empowerment's short horizon (<i>n</i>=5 cannot see the far source). That is Part I's
+  claim tested on the ground of MOP's own authors, so we replicated it: empowerment run four ways (greedy or
+  planned, with or without a body gate), MOP calibrated to their numbers, and two objective-free reference
+  policies, in two worlds. Numbers are means over 30 episodes capped at 3000 steps.</p>
+
+  <h3>Their empowerment arm does not forage, and the horizon is not the main reason.</h3>
+  <p>We recomputed their empowerment exactly — capacity from 5-step action sequences to the future
+  (position, energy, observation), validated against a brute-force enumeration — and ran it as their greedy
+  ascent and through our gain planner. Both starve: 42 and 48 steps, against 2422 for a policy with no
+  objective at all that simply walks to the nearest source and stands on it (a “parker”). Two features of the
+  world explain it (Fig.&nbsp;18). The food sits in corners, which are the most constrained cells, so the
+  empowerment field peaks on the cell <i>beside</i> each source (5.16 against 5.03 bits at <i>E</i>=20, and
+  still 4.34 against 4.19 at <i>E</i>=2). And energy gates nothing except death, so a meal restores about
+  0.05 bits unless starvation is already within the 5-step window. The agent walks to the cell beside the food
+  and waits there until it dies. Their horizon explanation is not wrong, only secondary: the corner penalty
+  shrinks with horizon (0.18, 0.13, 0.07, 0.03 bits for <i>n</i>=4…7) and probably flips near <i>n</i>=8.
+  Adding Part I's body gate — the same sigmoid, with body integrity read as <i>E</i>/30, and nothing changed
+  in the objective — makes a meal worth up to 2.4 bits when hungry and almost nothing when full. Lifespan rises
+  more than tenfold (to 460–547 steps), and meals settle at a stereotyped set point near <i>E</i>=24.</p>
+  <figure>
+    <img src="paper/figs/myl1_mechanism.png" alt="why their empowerment arm never eats">
+    <figcaption><b>Figure 18.</b> Their world. (a) The empowerment field at <i>E</i>=20 peaks next to each food
+    source, not on it: the corners are the most constrained cells. (b) Without a body coupling, empowerment
+    beside a source is flat in energy above the 5-step death horizon; with Part I's gate it falls steeply as
+    the body empties. (c) The gate — the only change to the world. (d) The somatic face, belief held fixed:
+    the empowerment one meal restores is ≈0 without the gate and up to 2.4 bits with it, largest when hungry
+    and vanishing when full.</figcaption>
+  </figure>
+
+  <h3>A world where switching pays.</h3>
+  <p>Their result had a deeper problem: in their world, alternating between sources is not useful. The
+  belief about a source relaxes toward 0.5, its deviation shrinking by 40% a step, so after the 8-step
+  crossing both sources look identical. An objective-free “switcher” that leaves a source once it has seen it empty lives 123 steps,
+  against the parker's 2422. Their second, “depletion at visit” condition does not change this. It sets the
+  depletion parameter equal to the baseline one (ρ=λ=0.8), so it is the same world. A testbed in which
+  switching is lethal cannot tell a useful alternation from a gratuitous one.</p>
+  <p>So we built the world their model family describes but their parameters do not reach. We changed only
+  their food parameters, chose them with the parker and the switcher alone, and fixed the rule before looking:
+  with the body gate on, the switcher must outlive the parker at least twofold and be viable in its own right.
+  A first grid of parameters produced no passing world; a second produced exactly one. Its refill rate is the
+  same as theirs (μ=0.2), but a source left alone stays full (λ=1) and standing on a full one empties it with
+  probability 0.8 per step (ρ=0.2). There the gated switcher lives 2131 steps against the parker's 836.</p>
+  <p>In this world embodied empowerment forages the way the switcher does (Fig.&nbsp;19). The gain planner waits
+  beside whichever source it believes is full — a source that stays full is a meal it can choose to take, which
+  is control over its own future energy — eats, and crosses to the other source: 100% of consecutive meals are
+  taken at alternate sources, with and without the gate. Two ingredients do separate jobs. The <b>planner over
+  destinations</b> decides <i>where</i>: greedy one-step ascent, their policy, never finds the second source
+  and keeps eating at the first, which is the one place their horizon argument is exactly right. The <b>body
+  gate</b> decides <i>when</i>: without it every meal comes at <i>E</i>=1–2, the last step before death; with it
+  meals come at a set point of <i>E</i>=18, while control is still intact. The gated gain planner lives 2382
+  steps (20 of 30 episodes reach the cap), on a par with the switcher and 2.8 times the parker.</p>
+  <figure>
+    <img src="paper/figs/mylp2_arms.png" alt="empowerment arms in the patch world">
+    <figcaption><b>Figure 19.</b> The patch world, where a source empties when stood on and refills when left.
+    Top: where each empowerment arm spends its time. Bottom: energy (teal) and distance to the nearest source
+    (red) for a median-lifespan episode. Greedy ascent stays with one source; the gain planner alternates. The
+    body gate turns last-moment eating (energy sawing down to 2) into a set point (a tight 18↔30 sawtooth).</figcaption>
+  </figure>
+
+  <h3>MOP, calibrated, on both worlds.</h3>
+  <p>Before trusting our MOP anywhere new, we required it to reproduce their reported MOP. It did not at first:
+  3.5 trips between sources per 1000 steps, against their 13.3. Their text admits two readings of an action that
+  bumps into a wall. Taking such actions to be unavailable — a corner then offers three options rather than five —
+  gives 11.6 trips, 27% of time on food, 41% two or more steps away and 92% of episodes reaching both sources,
+  against their 13.3, 26%, 42% and 94%. So their MOP carries a corner penalty of its own. (Empowerment is
+  indifferent to the convention, since bumping a wall and staying lead to the same outcome.) We used that
+  calibrated MOP — their Eq.&nbsp;6, β=0, γ=0.99, exact value iteration over position, energy and belief — in
+  every condition.</p>
+  <p>As prescribed — sampling its softmax policy — MOP does respond to the world. Its share of meals taken at
+  alternate sources rises from 5–13% in their world to 36–38% in the patch world. But it responds
+  softly: it still switches where switching kills, and under-switches where switching pays. On survival
+  neither principle wins overall. Without a body coupling in their world, MOP lives 882 steps and
+  empowerment 48: empowerment has no reason to eat when food changes nothing it controls, whereas MOP
+  values staying alive directly. With the gate in the patch world, empowerment lives 2382 steps and MOP 1344
+  (20 against 7 of 30 episodes reaching the cap). The other two conditions are ties.</p>
+  <p>Then the decomposition (Fig.&nbsp;20). Keep MOP's values and replace its softmax by an argmax, and the
+  softness disappears. Argmax-MOP takes 0% of its meals at alternate sources in their world and 100% in the
+  patch world — exactly empowerment's pattern — and it outlives its own softmax version and matches or outlives empowerment in
+  every condition (1780, 679, 3000 and 2690 steps). It also sets an eating point with or without a body
+  (<i>E</i>=13–26), which empowerment cannot do without the gate. So the two principles' <i>values</i> agree on
+  where to forage, and MOP's values are the better homeostat. What separates the agents as prescribed is MOP's
+  commitment to behavioural variability: the softmax that is MOP's optimal policy, its “liveliness,” costs it
+  half its lifespan in the gated patch world. And the 13.3 trips that their paper presents as MOP's
+  adaptive exploration are, by its own values — in our calibrated reimplementation — noise: in their world those values say
+  “stay.”</p>
+  <figure>
+    <img src="paper/figs/myl5_contingency.png" alt="what each principle values versus how it behaves">
+    <figcaption><b>Figure 20.</b> Values versus behaviour, body gate on. (a) Where to eat: the share of
+    consecutive meals at the other source. Empowerment and MOP's own values under an argmax policy coincide
+    exactly — 0% where switching is lethal, 100% where it pays — tracking the objective-free references (the
+    parker in their world, the switcher in the patch world). MOP as prescribed (softmax) tracks the payoff only
+    softly. (b) Survival: MOP's values under argmax outlive its prescribed softmax version in both worlds, by about
+    twofold; the parker still wins where switching is lethal. (c) When to eat (all four conditions): empowerment needs the body gate to eat before the last
+    step; MOP's values set an eating point either way.</figcaption>
+  </figure>
+
+  <h3>What this does and does not show.</h3>
+  <ul>
+    <li><b>Part I's somatic face survives outside our arena.</b> In a world we did not build, adding only the
+    body bottleneck turns a starving empowerment agent into one that forages at a set point. That is the
+    strongest external support Part I has.</li>
+    <li><b>The spatial alternation here is not Part I's venture.</b> It comes from planning over destinations,
+    and it appears without the gate. The epistemic face, Part I's driver of venturing, has nothing to work on
+    in a world with known dynamics, so this test neither confirms nor refutes it.</li>
+    <li><b>Empowerment does not beat MOP's values.</b> On a foraging task with no adversarial structure the two
+    value functions prescribe the same strategy, and MOP's is the better homeostat. The paradox map of §21
+    describes where the principles part company, in worlds built to trap one of them; outside those worlds
+    they largely converge. Making MOP penalise unpredictable transitions (β=−1, which Moreno-Bote notes approximates
+    empowerment, arXiv:2609.07508) moves it most of the way: in the gated patch world its lifespan rises from 1344 to 2312, though it also
+    switches more in their world, where switching costs it (Fig.&nbsp;21).</li>
+    <li><b>Where survival comes from differs.</b> For MOP it comes from a posited terminal condition (zero value
+    at death; their own appendix shows, for active inference, how strongly a terminal condition sets
+    behaviour). For empowerment it comes
+    from a body that throttles control, and without one, empowerment eats only at the last possible step. A
+    companion paper from the same group (Moreno-Bote, arXiv:2609.07508) takes the third route and posits
+    homeostasis as the objective.</li>
+    <li><b>Caveats.</b> We designed the patch world, under a rule stated in advance. Our empowerment agent
+    plans heuristically over destinations with 5-step capacities, while MOP is solved exactly with a
+    ~100-step horizon, so the computational comparison favours MOP. Thirty episodes per cell; lifespans near
+    the 3000-step cap are censored.</li>
+  </ul>
+  <figure>
+    <img src="paper/figs/myl6_robustness.png" alt="MOP beta sweep">
+    <figcaption><b>Figure 21.</b> Supplementary: MOP's β, the weight on the entropy of the next state, in all
+    four conditions (calibrated MOP, softmax policy). (a) Penalising unpredictable transitions (β&lt;0)
+    raises switching everywhere, in their world as well as the patch world, so β shifts how much MOP switches
+    rather than how well it tracks the payoff. (b) In the gated patch world β=−1 lifts MOP's lifespan from
+    1344 to 2312, close to empowerment's 2382; without a body in their world it costs survival.</figcaption>
+  </figure>
+
+  <h2><span class="n">23</span>Methods</h2>
 
   <h3>Environment and agent.</h3>
   <p>The arena is a 17×9 grid: two open 5×7 basins flanking a small central chamber, joined by a corridor
@@ -755,16 +896,50 @@
   <code>make_progression_figs.py</code>; code in <code>empower/progression.py</code>,
   <code>empower/gated.py</code>, <code>empower/paradox.py</code>, <code>demo/progression.js</code>.</p>
 
+  <h3>Part III — the foraging replication (§22).</h3>
+  <p><b>Environment.</b> Their two-food POMDP as specified (Mylonas &amp; Moreno-Bote, Sec.&nbsp;2 and
+  Table&nbsp;1): a 5×5 grid, sources at opposite corners, energy 0–30 (−1 per step, +15 per meal capped at 30,
+  death at 0), hidden source states with p(<i>h'</i>=1|<i>h</i>=1)=λ away from the source and ρ standing on
+  it, p(<i>h'</i>=1|<i>h</i>=0)=μ, the transition reading the agent's current position; observations exact on
+  a source and uniform noise elsewhere. Their world: λ=ρ=0.8, μ=0.2. Patch world: λ=1, μ=0.2, ρ=0.2, chosen
+  with two objective-free reference policies only (a <i>parker</i> that stands on the nearest source, and a
+  <i>switcher</i> that goes to whichever source it believes more likely full) by a rule fixed in advance
+  (gated switcher ≥2× gated parker and ≥1500 steps; largest ratio). Beliefs are exact Bayesian filters kept
+  continuous. The optional body gate replaces the commanded action by a uniform-random one with probability
+  <i>g</i>(<i>E</i>/30), Part I's sigmoid unchanged.</p>
+  <p><b>Empowerment.</b> Capacity from 5-step action sequences to the future (position, energy, observation),
+  by Blahut–Arimoto on the exact joint over position, energy and hidden state (their factorised Eq.&nbsp;17
+  changes the field by ≈0.001 bits). The propagation is linear in the initial hidden state, so one pass per
+  (position, energy) serves every belief; tables are exact in position and energy and bilinear on a 5×5 belief
+  grid (max error 0.004 bits), and agree with an independent brute-force enumeration to 10<sup>−6</sup>
+  bits. Arms: <i>greedy ascent</i>, their policy, takes the action with the highest expected successor
+  empowerment; the <i>gain planner</i> scores every destination by
+  γ<sup>τ</sup>·(<i>C</i><sub>arrival</sub>−<i>C</i><sub>now</sub>), γ=0.9, crediting the expected meal on
+  arriving at a source, treating staying as a one-step action and an unreachable destination as death, and
+  entering a food cell only when it is the chosen destination (otherwise ties between the two cells beside a
+  source let shortest paths cross the food by accident).</p>
+  <p><b>MOP.</b> Their Eq.&nbsp;6 by value iteration over position, energy and both beliefs on their 0.1 belief
+  grid, with off-grid beliefs interpolated bilinearly (their Appendix&nbsp;A.3); γ=0.99, β=0 unless stated,
+  zero value at death, tolerance 10<sup>−2</sup>, softmax policy. Wall-bumping actions are unavailable, the
+  reading that reproduces their reported behaviour; the other reading is kept as a variant. The β-term uses
+  the entropy of the true next-state outcomes. The argmax variant keeps MOP's values and takes the best action,
+  as a diagnostic rather than as MOP. Metrics: lifespan; trips between sources per 1000 steps; the share of
+  consecutive meals taken at alternate sources; energy just before meals. Thirty episodes per cell from the grid
+  centre with full energy and both sources believed full, capped at 3000 steps. Code:
+  <code>empower/mylonas.py</code>, <code>empower/mop_belief.py</code>, <code>build_mylonas_tables.py</code>,
+  <code>select_patch_world.py</code>, <code>make_mylonas_figs.py</code>, <code>run_mop.py</code>,
+  <code>robust_mop.py</code>, <code>make_contingency_fig.py</code>, <code>tests/test_mylonas.py</code>.</p>
+
   <div class="footer">
     <p>Built as a minimal-model exploration of intrinsic motivation, in three parts from one quantity.
     Empowerment after Klyubin, Polani &amp; Nehaniv (2005); empowerment+curiosity after de Abril &amp; Kanai
     (2018); learning progress after Oudeyer &amp; Kaplan and Schmidhuber; the Maximum Occupancy Principle and
     the grand-roulette / noisy-TV comparison after Ramírez-Ruiz et al. (<i>Nat. Commun.</i> 2024), the
     empowerment-collapse critique after Moreno-Bote &amp; Ramírez-Ruiz (2023), and the paradox taxonomy after a
-    2026 review (arXiv:2601.10276). The explore/exploit-as-phases framing, the viability-gated epistemic face,
+    2026 review (arXiv:2601.10276); the two-food foraging POMDP of §22 after Mylonas &amp; Moreno-Bote (arXiv:2609.39342, IWAI 2026). The explore/exploit-as-phases framing, the viability-gated epistemic face,
     control-grounded learning progress, the empowerment-progress developmental staircase, and the
     control-grounded resolution of the paradoxes are this paper's contribution. Code: <code>empower/</code>
-    (simulation), <code>make_figures.py</code> + <code>make_progression_figs.py</code> (figures + data),
+    (simulation), <code>make_figures.py</code> + <code>make_progression_figs.py</code> + <code>make_mylonas_figs.py</code> (figures + data),
     <code>demo/</code> (live agents).</p>
   </div>
 

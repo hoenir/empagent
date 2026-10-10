@@ -1,0 +1,532 @@
+{
+ "parker|0": {
+  "life_mean": 2421.5333333333333,
+  "life_sem": 181.12313543987383,
+  "died": 0.36666666666666664,
+  "on_food": 0.9972026963722455,
+  "trips": 0.0
+ },
+ "parker|1": {
+  "life_mean": 1071.5,
+  "life_sem": 155.29271396782997,
+  "died": 0.9333333333333333,
+  "on_food": 0.9537423880960516,
+  "trips": 0.0
+ },
+ "level|1": {
+  "summary": {
+   "life_mean": 546.8,
+   "life_sem": 92.82047187986063,
+   "died": 1.0,
+   "on_food": 0.3393304159527957,
+   "trips": 0.0727802037845706
+  },
+  "excursion": [
+   {
+    "E": "0-5",
+    "n": 172,
+    "mean_dist": 1.9767441860465116,
+    "frac_off_food": 0.8604651162790697
+   },
+   {
+    "E": "6-11",
+    "n": 341,
+    "mean_dist": 0.7419354838709677,
+    "frac_off_food": 0.47214076246334313
+   },
+   {
+    "E": "12-17",
+    "n": 918,
+    "mean_dist": 0.0915032679738562,
+    "frac_off_food": 0.08169934640522876
+   },
+   {
+    "E": "18-23",
+    "n": 3410,
+    "mean_dist": 0.2589442815249267,
+    "frac_off_food": 0.256891495601173
+   },
+   {
+    "E": "24-30",
+    "n": 11563,
+    "mean_dist": 0.8702758799619476,
+    "frac_off_food": 0.8545360200639972
+   }
+  ],
+  "deaths": [
+   {
+    "steps_from_last_food_to_death": 13,
+    "E_at_last_food": 13,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 8,
+    "E_at_last_food": 8,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 8,
+    "E_at_last_food": 8,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 3,
+    "E_at_last_food": 3,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 2
+   },
+   {
+    "steps_from_last_food_to_death": 6,
+    "E_at_last_food": 6,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 8,
+    "E_at_last_food": 8,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 5,
+    "E_at_last_food": 5,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 4,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 9,
+    "E_at_last_food": 9,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 11,
+    "E_at_last_food": 11,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 4,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 13,
+    "E_at_last_food": 13,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 4,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 1,
+    "E_at_last_food": 1,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 0,
+    "max_dist_after_last_food": 0
+   },
+   {
+    "steps_from_last_food_to_death": 9,
+    "E_at_last_food": 9,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 12,
+    "E_at_last_food": 12,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 1,
+    "max_dist_after_last_food": 2
+   },
+   {
+    "steps_from_last_food_to_death": 13,
+    "E_at_last_food": 13,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 2
+   },
+   {
+    "steps_from_last_food_to_death": 8,
+    "E_at_last_food": 8,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 13,
+    "E_at_last_food": 13,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 4,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 8,
+    "E_at_last_food": 8,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 4,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 9,
+    "E_at_last_food": 9,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 4,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 11,
+    "E_at_last_food": 11,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 1,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 10,
+    "E_at_last_food": 10,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 9,
+    "E_at_last_food": 9,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 1,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 13,
+    "E_at_last_food": 13,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 9,
+    "E_at_last_food": 9,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 9,
+    "E_at_last_food": 9,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 1,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 5,
+    "E_at_last_food": 5,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 1,
+    "max_dist_after_last_food": 2
+   },
+   {
+    "steps_from_last_food_to_death": 10,
+    "E_at_last_food": 10,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 4,
+    "E_at_last_food": 4,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 2
+   },
+   {
+    "steps_from_last_food_to_death": 9,
+    "E_at_last_food": 9,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 1,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 10,
+    "E_at_last_food": 10,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 4,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 10,
+    "E_at_last_food": 10,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 4
+   }
+  ],
+  "switching": {
+   "after_empty_same": 496,
+   "after_empty_other": 1,
+   "frac_other": 0.002012072434607646
+  }
+ },
+ "gain|1": {
+  "summary": {
+   "life_mean": 314.26666666666665,
+   "life_sem": 48.5446099694716,
+   "died": 1.0,
+   "on_food": 0.44986277365113225,
+   "trips": 0.3921568627450981
+  },
+  "excursion": [
+   {
+    "E": "0-5",
+    "n": 163,
+    "mean_dist": 2.355828220858896,
+    "frac_off_food": 0.9693251533742331
+   },
+   {
+    "E": "6-11",
+    "n": 281,
+    "mean_dist": 1.4306049822064058,
+    "frac_off_food": 0.7935943060498221
+   },
+   {
+    "E": "12-17",
+    "n": 660,
+    "mean_dist": 0.7348484848484849,
+    "frac_off_food": 0.6606060606060606
+   },
+   {
+    "E": "18-23",
+    "n": 2188,
+    "mean_dist": 0.696526508226691,
+    "frac_off_food": 0.6924131627056673
+   },
+   {
+    "E": "24-30",
+    "n": 6136,
+    "mean_dist": 0.4765319426336376,
+    "frac_off_food": 0.40352020860495436
+   }
+  ],
+  "deaths": [
+   {
+    "steps_from_last_food_to_death": 15,
+    "E_at_last_food": 15,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 12,
+    "E_at_last_food": 12,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 5,
+    "E_at_last_food": 5,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 2
+   },
+   {
+    "steps_from_last_food_to_death": 9,
+    "E_at_last_food": 9,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 2
+   },
+   {
+    "steps_from_last_food_to_death": 8,
+    "E_at_last_food": 8,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 1,
+    "max_dist_after_last_food": 2
+   },
+   {
+    "steps_from_last_food_to_death": 9,
+    "E_at_last_food": 9,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 1,
+    "max_dist_after_last_food": 2
+   },
+   {
+    "steps_from_last_food_to_death": 9,
+    "E_at_last_food": 9,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 8,
+    "E_at_last_food": 8,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 1,
+    "max_dist_after_last_food": 2
+   },
+   {
+    "steps_from_last_food_to_death": 3,
+    "E_at_last_food": 3,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 1,
+    "max_dist_after_last_food": 1
+   },
+   {
+    "steps_from_last_food_to_death": 14,
+    "E_at_last_food": 14,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 4,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 14,
+    "E_at_last_food": 14,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 4,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 10,
+    "E_at_last_food": 10,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 4,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 12,
+    "E_at_last_food": 12,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 10,
+    "E_at_last_food": 10,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 4,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 16,
+    "E_at_last_food": 16,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 1,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 3,
+    "E_at_last_food": 3,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 1,
+    "max_dist_after_last_food": 1
+   },
+   {
+    "steps_from_last_food_to_death": 7,
+    "E_at_last_food": 7,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 11,
+    "E_at_last_food": 11,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 10,
+    "E_at_last_food": 10,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 4,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 13,
+    "E_at_last_food": 13,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 16,
+    "E_at_last_food": 16,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 11,
+    "E_at_last_food": 11,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 2,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 11,
+    "E_at_last_food": 11,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 13,
+    "E_at_last_food": 13,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 1,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 7,
+    "E_at_last_food": 7,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 7,
+    "E_at_last_food": 7,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 4,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 14,
+    "E_at_last_food": 14,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 10,
+    "E_at_last_food": 10,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 3
+   },
+   {
+    "steps_from_last_food_to_death": 10,
+    "E_at_last_food": 10,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 4
+   },
+   {
+    "steps_from_last_food_to_death": 12,
+    "E_at_last_food": 12,
+    "source_seen_empty_at_last_visit": true,
+    "dist_at_death": 3,
+    "max_dist_after_last_food": 4
+   }
+  ],
+  "switching": {
+   "after_empty_same": 783,
+   "after_empty_other": 0,
+   "frac_other": 0.0
+  }
+ }
+}

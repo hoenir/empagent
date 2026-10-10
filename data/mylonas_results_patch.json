@@ -1,0 +1,415 @@
+{
+ "world": "World(patch: lam=1 mu=0.2 rho=0.2)",
+ "arms": {
+  "level|0": {
+   "steps": 529.0,
+   "steps_sem": 98.2798607776932,
+   "died": 1.0,
+   "died_sem": 0.0,
+   "trips_per_1k": 0.0,
+   "trips_per_1k_sem": 0.0,
+   "frac_on_food": 0.06110870033489114,
+   "frac_on_food_sem": 0.0012616012312673549,
+   "frac_far": 0.12708626505995307,
+   "frac_far_sem": 0.0012390459091849168,
+   "both_sources": 0.0,
+   "both_sources_sem": 0.0,
+   "cells_visited": 5.966666666666667,
+   "cells_visited_sem": 0.033333333333333326,
+   "state_entropy": 1.1544911601506314,
+   "state_entropy_sem": 0.018998164361952893,
+   "mean_E": 10.207841784185076,
+   "mean_E_sem": 0.24079326162919354,
+   "n_episodes": 30
+  },
+  "gain|0": {
+   "steps": 2559.5,
+   "steps_sem": 170.28902914831554,
+   "died": 0.23333333333333334,
+   "died_sem": 0.07854032324531726,
+   "trips_per_1k": 64.69464859158816,
+   "trips_per_1k_sem": 0.8018791579662848,
+   "frac_on_food": 0.0656806576291274,
+   "frac_on_food_sem": 0.00040093957898314214,
+   "frac_far": 0.4621397876289188,
+   "frac_far_sem": 0.0019381663843672685,
+   "both_sources": 1.0,
+   "both_sources_sem": 0.0,
+   "cells_visited": 24.8,
+   "cells_visited_sem": 0.14700066463216702,
+   "state_entropy": 2.72360243001863,
+   "state_entropy_sem": 0.008857387974932483,
+   "mean_E": 9.196105095653486,
+   "mean_E_sem": 0.07796873231091633,
+   "n_episodes": 30
+  },
+  "level|1": {
+   "steps": 1717.2666666666667,
+   "steps_sem": 190.55048465712474,
+   "died": 0.7666666666666667,
+   "died_sem": 0.07854032324531728,
+   "trips_per_1k": 0.0,
+   "trips_per_1k_sem": 0.0,
+   "frac_on_food": 0.10231543455867358,
+   "frac_on_food_sem": 0.003743591289971914,
+   "frac_far": 0.017329922975152342,
+   "frac_far_sem": 0.00445710827307865,
+   "both_sources": 0.0,
+   "both_sources_sem": 0.0,
+   "cells_visited": 8.666666666666666,
+   "cells_visited_sem": 0.22658551623742942,
+   "state_entropy": 1.0350034508522472,
+   "state_entropy_sem": 0.01721981074671278,
+   "mean_E": 23.350580807350955,
+   "mean_E_sem": 0.12018536532399375,
+   "n_episodes": 30
+  },
+  "gain|1": {
+   "steps": 2382.3,
+   "steps_sem": 187.3176609184356,
+   "died": 0.3333333333333333,
+   "died_sem": 0.0875376219064817,
+   "trips_per_1k": 73.97639802357766,
+   "trips_per_1k_sem": 1.030511600238843,
+   "frac_on_food": 0.07538285104440143,
+   "frac_on_food_sem": 0.0006136190997711228,
+   "frac_far": 0.39420663485505636,
+   "frac_far_sem": 0.002699404743633827,
+   "both_sources": 1.0,
+   "both_sources_sem": 0.0,
+   "cells_visited": 24.666666666666668,
+   "cells_visited_sem": 0.21081851067789187,
+   "state_entropy": 2.7591937511247306,
+   "state_entropy_sem": 0.0035489349506663903,
+   "mean_E": 23.686032676261107,
+   "mean_E_sem": 0.11587015778721164,
+   "n_episodes": 30
+  }
+ },
+ "refs": {
+  "parker|0": {
+   "steps": 2137.233333333333,
+   "steps_sem": 190.67761613524323,
+   "died": 0.5,
+   "died_sem": 0.09284766908852593,
+   "trips_per_1k": 0.0,
+   "trips_per_1k_sem": 0.0,
+   "frac_on_food": 0.9968126967585561,
+   "frac_on_food_sem": 0.0005671296162853561,
+   "frac_far": 0.0023904774310828567,
+   "frac_far_sem": 0.00042534721221401575,
+   "both_sources": 0.0,
+   "both_sources_sem": 0.0,
+   "cells_visited": 5.0,
+   "cells_visited_sem": 0.0,
+   "state_entropy": 0.024778615198570022,
+   "state_entropy_sem": 0.003793119328721538,
+   "mean_E": 25.81873739947506,
+   "mean_E_sem": 0.07775386913409293,
+   "n_episodes": 30
+  },
+  "parker|1": {
+   "steps": 836.1333333333333,
+   "steps_sem": 132.11138398252353,
+   "died": 1.0,
+   "died_sem": 0.0,
+   "trips_per_1k": 0.014530659691950016,
+   "trips_per_1k_sem": 0.01453065969195001,
+   "frac_on_food": 0.9497089235626237,
+   "frac_on_food_sem": 0.009741529762647081,
+   "frac_far": 0.02963396423667024,
+   "frac_far_sem": 0.006510304573368179,
+   "both_sources": 0.03333333333333333,
+   "both_sources_sem": 0.033333333333333326,
+   "cells_visited": 8.2,
+   "cells_visited_sem": 0.3726265888428303,
+   "state_entropy": 0.277223997410185,
+   "state_entropy_sem": 0.04083606673600311,
+   "mean_E": 25.044389281828977,
+   "mean_E_sem": 0.26152382515892236,
+   "n_episodes": 30
+  },
+  "switcher|0": {
+   "steps": 2959.3333333333335,
+   "steps_sem": 40.666666666666664,
+   "died": 0.03333333333333333,
+   "died_sem": 0.033333333333333326,
+   "trips_per_1k": 108.15106117353311,
+   "trips_per_1k_sem": 0.05762692870951161,
+   "frac_on_food": 0.24058164794007494,
+   "frac_on_food_sem": 0.0003834829100490476,
+   "frac_far": 0.5424565543071161,
+   "frac_far_sem": 0.0002752192519231639,
+   "both_sources": 1.0,
+   "both_sources_sem": 0.0,
+   "cells_visited": 25.0,
+   "cells_visited_sem": 0.0,
+   "state_entropy": 3.018136433222204,
+   "state_entropy_sem": 0.0013506804601492533,
+   "mean_E": 25.904972409488142,
+   "mean_E_sem": 0.021227604315802187,
+   "n_episodes": 30
+  },
+  "switcher|1": {
+   "steps": 2131.233333333333,
+   "steps_sem": 182.87843260240152,
+   "died": 0.5,
+   "died_sem": 0.09284766908852593,
+   "trips_per_1k": 103.84338517533998,
+   "trips_per_1k_sem": 2.07876420987361,
+   "frac_on_food": 0.23471171102589924,
+   "frac_on_food_sem": 0.004342642730971792,
+   "frac_far": 0.5482932065756281,
+   "frac_far_sem": 0.004434068373050705,
+   "both_sources": 1.0,
+   "both_sources_sem": 0.0,
+   "cells_visited": 24.733333333333334,
+   "cells_visited_sem": 0.1913853507727837,
+   "state_entropy": 3.0074262005325236,
+   "state_entropy_sem": 0.008155598905615256,
+   "mean_E": 25.493568090036526,
+   "mean_E_sem": 0.23839003777768178,
+   "n_episodes": 30
+  },
+  "mop|0": {
+   "steps": 2618.0,
+   "steps_sem": 155.4117408544229,
+   "died": 0.2,
+   "died_sem": 0.07427813527082075,
+   "trips_per_1k": 25.53951018027726,
+   "trips_per_1k_sem": 0.9941505324131936,
+   "frac_on_food": 0.12023330958144834,
+   "frac_on_food_sem": 0.00099292784009827,
+   "frac_far": 0.6347392829891294,
+   "frac_far_sem": 0.004717792756741709,
+   "both_sources": 0.9666666666666667,
+   "both_sources_sem": 0.033333333333333326,
+   "cells_visited": 24.566666666666666,
+   "cells_visited_sem": 0.36729309081357214,
+   "state_entropy": 2.9899853764294453,
+   "state_entropy_sem": 0.017124708606831747,
+   "mean_E": 17.64848948781835,
+   "mean_E_sem": 0.09883734725863198,
+   "n_episodes": 30
+  },
+  "mop|1": {
+   "steps": 1343.7666666666667,
+   "steps_sem": 202.76941030340168,
+   "died": 0.7666666666666667,
+   "died_sem": 0.0785403232453173,
+   "trips_per_1k": 31.20075590577907,
+   "trips_per_1k_sem": 1.4888215742422886,
+   "frac_on_food": 0.1366990853538626,
+   "frac_on_food_sem": 0.006403294122829319,
+   "frac_far": 0.5724923901480747,
+   "frac_far_sem": 0.014963020402195193,
+   "both_sources": 0.9666666666666667,
+   "both_sources_sem": 0.033333333333333326,
+   "cells_visited": 23.466666666666665,
+   "cells_visited_sem": 0.5964132898087838,
+   "state_entropy": 2.8655757983400076,
+   "state_entropy_sem": 0.035308392336470276,
+   "mean_E": 23.240906497335335,
+   "mean_E_sem": 0.30235078025806206,
+   "n_episodes": 30
+  }
+ },
+ "switching": {
+  "level|0": {
+   "empty_events": 5,
+   "wait": 5,
+   "back": 0,
+   "other": 0,
+   "frac_wait": 1.0,
+   "frac_other": 0.0,
+   "frac_other_given_leave": null
+  },
+  "gain|0": {
+   "empty_events": 0,
+   "wait": 0,
+   "back": 0,
+   "other": 0,
+   "frac_wait": null,
+   "frac_other": null,
+   "frac_other_given_leave": null
+  },
+  "level|1": {
+   "empty_events": 1090,
+   "wait": 997,
+   "back": 93,
+   "other": 0,
+   "frac_wait": 0.9146788990825688,
+   "frac_other": 0.0,
+   "frac_other_given_leave": 0.0
+  },
+  "gain|1": {
+   "empty_events": 14,
+   "wait": 1,
+   "back": 7,
+   "other": 6,
+   "frac_wait": 0.07142857142857142,
+   "frac_other": 0.42857142857142855,
+   "frac_other_given_leave": 0.46153846153846156
+  },
+  "parker|0": {
+   "empty_events": 51111,
+   "wait": 51111,
+   "back": 0,
+   "other": 0,
+   "frac_wait": 1.0,
+   "frac_other": 0.0,
+   "frac_other_given_leave": null
+  },
+  "parker|1": {
+   "empty_events": 19505,
+   "wait": 19355,
+   "back": 149,
+   "other": 1,
+   "frac_wait": 0.9923096641886696,
+   "frac_other": 5.126890540886952e-05,
+   "frac_other_given_leave": 0.006666666666666667
+  },
+  "switcher|0": {
+   "empty_events": 9602,
+   "wait": 0,
+   "back": 0,
+   "other": 9602,
+   "frac_wait": 0.0,
+   "frac_other": 1.0,
+   "frac_other_given_leave": 1.0
+  },
+  "switcher|1": {
+   "empty_events": 6837,
+   "wait": 4,
+   "back": 3,
+   "other": 6830,
+   "frac_wait": 0.000585051923358198,
+   "frac_other": 0.9989761591341232,
+   "frac_other_given_leave": 0.9995609541928875
+  },
+  "mop|0": {
+   "empty_events": 3544,
+   "wait": 1043,
+   "back": 1689,
+   "other": 812,
+   "frac_wait": 0.2943002257336343,
+   "frac_other": 0.2291196388261851,
+   "frac_other_given_leave": 0.3246701319472211
+  },
+  "mop|1": {
+   "empty_events": 2064,
+   "wait": 718,
+   "back": 976,
+   "other": 370,
+   "frac_wait": 0.3478682170542636,
+   "frac_other": 0.17926356589147288,
+   "frac_other_given_leave": 0.274888558692422
+  }
+ },
+ "meals": {
+  "level|0": {
+   "meals": 998,
+   "alternation": 0.0,
+   "E_pct": [
+    2.0,
+    2.0,
+    2.0
+   ]
+  },
+  "gain|0": {
+   "meals": 5082,
+   "alternation": 1.0,
+   "E_pct": [
+    2.0,
+    2.0,
+    2.0
+   ]
+  },
+  "level|1": {
+   "meals": 3861,
+   "alternation": 0.0,
+   "E_pct": [
+    17.0,
+    18.0,
+    18.0
+   ]
+  },
+  "gain|1": {
+   "meals": 5434,
+   "alternation": 0.9981495188749074,
+   "E_pct": [
+    18.0,
+    18.0,
+    18.0
+   ]
+  },
+  "parker|0": {
+   "meals": 10401,
+   "alternation": 0.0,
+   "E_pct": [
+    19.0,
+    26.0,
+    29.0
+   ]
+  },
+  "parker|1": {
+   "meals": 3957,
+   "alternation": 0.00025464731347084286,
+   "E_pct": [
+    19.0,
+    26.0,
+    29.0
+   ]
+  },
+  "switcher|0": {
+   "meals": 9473,
+   "alternation": 0.9763846235306576,
+   "E_pct": [
+    22.0,
+    22.0,
+    22.0
+   ]
+  },
+  "switcher|1": {
+   "meals": 6756,
+   "alternation": 0.9791852512637526,
+   "E_pct": [
+    22.0,
+    22.0,
+    22.0
+   ]
+  },
+  "mop|0": {
+   "meals": 5832,
+   "alternation": 0.36177180282661153,
+   "E_pct": [
+    3.0,
+    12.0,
+    23.0
+   ]
+  },
+  "mop|1": {
+   "meals": 3518,
+   "alternation": 0.38320435654915447,
+   "E_pct": [
+    16.0,
+    19.0,
+    27.0
+   ]
+  }
+ },
+ "reported": null,
+ "gamma": 0.9,
+ "n_episodes": 30,
+ "max_steps": 3000,
+ "best_reference": {
+  "steps": {
+   "0": 2959.3333333333335,
+   "1": 2131.233333333333
+  },
+  "name": {
+   "0": "switcher",
+   "1": "switcher"
+  }
+ }
+}

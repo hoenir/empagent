@@ -11,7 +11,9 @@ control over its own future):
   structure) climbs a developmental curriculum with no schedule.
 - **Part III — the fuller picture.** Because empowerment counts only the futures you *cause*,
   it sidesteps the noisy-TV and grand-roulette traps of info-gain and Maximum Occupancy; the
-  paradox map situates it among the reward-free principles.
+  paradox map situates it among the reward-free principles. §22 then tests the claims on a
+  foraging POMDP built by MOP's authors (Mylonas & Moreno-Bote, arXiv:2609.39342), against a
+  MOP calibrated to their reported numbers.
 
 **Read the paper / play with the two live demos:** open [`index.html`](index.html) in a
 browser (the demos run the actual agents in JavaScript — nothing is pre-recorded).
@@ -24,6 +26,8 @@ browser (the demos run the actual agents in JavaScript — nothing is pre-record
 | `empower/` | the simulation (Python) |
 | `make_figures.py` | reproduces every Part I figure + demo data from one script |
 | `make_progression_figs.py` | reproduces the Part II/III figures + demo data |
+| `build_mylonas_tables.py`, `select_patch_world.py`, `make_mylonas_figs.py`, `run_mop.py`, `robust_mop.py`, `make_contingency_fig.py` | the §22 foraging replication (tables, world selection, figures `myl*`/`mylp*`, MOP, robustness) |
+| `tests/test_mylonas.py` | brute-force check of the §22 empowerment computation |
 | `paper/figs/` | generated figures (`fig*` = Part I, `prog*` = Part II/III) |
 | `demo/` | `data.js`/`demo.js` (Part I cycle) and `prog_data.js`/`progression.js` (Part II curiosity) |
 | `brainstorm.md` | the original design brief for Part I |
@@ -36,6 +40,9 @@ browser (the demos run the actual agents in JavaScript — nothing is pre-record
 - `progression.py` — equidistant/ladder arenas + the learning-progress agent (Part II).
 - `gated.py` — switch–gate dependency environment + the unlock staircase (Part II, §19).
 - `paradox.py` — grand-roulette MDP + MOP-vs-control soft value iteration (Part III, §21).
+- `mylonas.py` — the two-food POMDP of §22 (their world and the patch world), exact belief-POMDP
+  empowerment, the greedy and gain-planner arms, and the objective-free reference policies.
+- `mop_belief.py` — MOP (their Eq. 6) by value iteration over position, energy and belief.
 - `agent.py` — empowerment lookup, tabular uncertainty model, the single gain drive
   (somatic + viability-gated epistemic faces), the two-term baseline
   `R=(1−β)·E+β·novelty` for the head-to-head, shortest-path planner, and the
@@ -54,6 +61,11 @@ pip install numpy matplotlib
 python make_figures.py            # all figures -> paper/figs/, demo data -> demo/
 # or a subset:
 python make_figures.py field headline scaling demo
+
+# section 22 (empowerment tables take ~45 min on 8-10 cores; cached in data/)
+python build_mylonas_tables.py && MYL_WORLD=patch python build_mylonas_tables.py
+MYL_WORLD=theirs python make_mylonas_figs.py && MYL_WORLD=patch python make_mylonas_figs.py
+python run_mop.py && python robust_mop.py && python make_contingency_fig.py
 ```
 
 Then serve the folder and open `index.html`:

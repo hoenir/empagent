@@ -1,0 +1,281 @@
+{
+ "rule": "gated switcher >= 2x gated parker and >= 1500 steps; max ratio among passing",
+ "rows": [
+  {
+   "lam": 0.8,
+   "mu": 0.2,
+   "rho": 0.8,
+   "plain_parker": 2421.5333333333333,
+   "plain_switcher": 278.2,
+   "gated_parker": 1071.5,
+   "gated_switcher": 111.46666666666667,
+   "gated_ratio": 0.10402862031420128,
+   "plain_ratio": 0.1148858849764612
+  },
+  {
+   "lam": 0.95,
+   "mu": 0.02,
+   "rho": 0.2,
+   "plain_parker": 43.56666666666667,
+   "plain_switcher": 46.5,
+   "gated_parker": 42.2,
+   "gated_switcher": 46.7,
+   "gated_ratio": 1.1066350710900474,
+   "plain_ratio": 1.0673297628156082
+  },
+  {
+   "lam": 0.95,
+   "mu": 0.02,
+   "rho": 0.5,
+   "plain_parker": 46.06666666666667,
+   "plain_switcher": 50.666666666666664,
+   "gated_parker": 44.4,
+   "gated_switcher": 47.13333333333333,
+   "gated_ratio": 1.0615615615615617,
+   "plain_ratio": 1.0998552821997105
+  },
+  {
+   "lam": 0.95,
+   "mu": 0.05,
+   "rho": 0.2,
+   "plain_parker": 62.56666666666667,
+   "plain_switcher": 62.766666666666666,
+   "gated_parker": 52.7,
+   "gated_switcher": 61.56666666666667,
+   "gated_ratio": 1.168247944339026,
+   "plain_ratio": 1.003196590303676
+  },
+  {
+   "lam": 0.95,
+   "mu": 0.05,
+   "rho": 0.5,
+   "plain_parker": 68.13333333333334,
+   "plain_switcher": 59.8,
+   "gated_parker": 53.0,
+   "gated_switcher": 57.4,
+   "gated_ratio": 1.0830188679245283,
+   "plain_ratio": 0.8776908023483365
+  },
+  {
+   "lam": 0.95,
+   "mu": 0.1,
+   "rho": 0.2,
+   "plain_parker": 215.03333333333333,
+   "plain_switcher": 104.3,
+   "gated_parker": 98.83333333333333,
+   "gated_switcher": 82.33333333333333,
+   "gated_ratio": 0.8330522765598651,
+   "plain_ratio": 0.4850410789024957
+  },
+  {
+   "lam": 0.95,
+   "mu": 0.1,
+   "rho": 0.5,
+   "plain_parker": 238.26666666666668,
+   "plain_switcher": 99.1,
+   "gated_parker": 105.33333333333333,
+   "gated_switcher": 85.63333333333334,
+   "gated_ratio": 0.8129746835443039,
+   "plain_ratio": 0.41592053721320643
+  },
+  {
+   "lam": 0.98,
+   "mu": 0.02,
+   "rho": 0.2,
+   "plain_parker": 43.7,
+   "plain_switcher": 49.2,
+   "gated_parker": 42.333333333333336,
+   "gated_switcher": 49.13333333333333,
+   "gated_ratio": 1.1606299212598425,
+   "plain_ratio": 1.125858123569794
+  },
+  {
+   "lam": 0.98,
+   "mu": 0.02,
+   "rho": 0.5,
+   "plain_parker": 46.2,
+   "plain_switcher": 53.0,
+   "gated_parker": 44.1,
+   "gated_switcher": 49.93333333333333,
+   "gated_ratio": 1.132275132275132,
+   "plain_ratio": 1.147186147186147
+  },
+  {
+   "lam": 0.98,
+   "mu": 0.05,
+   "rho": 0.2,
+   "plain_parker": 62.666666666666664,
+   "plain_switcher": 63.4,
+   "gated_parker": 52.833333333333336,
+   "gated_switcher": 64.5,
+   "gated_ratio": 1.220820189274448,
+   "plain_ratio": 1.0117021276595746
+  },
+  {
+   "lam": 0.98,
+   "mu": 0.05,
+   "rho": 0.5,
+   "plain_parker": 68.13333333333334,
+   "plain_switcher": 60.46666666666667,
+   "gated_parker": 53.56666666666667,
+   "gated_switcher": 61.733333333333334,
+   "gated_ratio": 1.1524579962663348,
+   "plain_ratio": 0.8874755381604696
+  },
+  {
+   "lam": 0.98,
+   "mu": 0.1,
+   "rho": 0.2,
+   "plain_parker": 215.13333333333333,
+   "plain_switcher": 356.46666666666664,
+   "gated_parker": 98.53333333333333,
+   "gated_switcher": 133.43333333333334,
+   "gated_ratio": 1.354194857916103,
+   "plain_ratio": 1.656956925937403
+  },
+  {
+   "lam": 0.98,
+   "mu": 0.1,
+   "rho": 0.5,
+   "plain_parker": 238.26666666666668,
+   "plain_switcher": 500.3666666666667,
+   "gated_parker": 115.46666666666667,
+   "gated_switcher": 166.0,
+   "gated_ratio": 1.4376443418013856,
+   "plain_ratio": 2.1000279798545045
+  },
+  {
+   "lam": 0.99,
+   "mu": 0.02,
+   "rho": 0.2,
+   "plain_parker": 43.7,
+   "plain_switcher": 50.93333333333333,
+   "gated_parker": 42.53333333333333,
+   "gated_switcher": 50.2,
+   "gated_ratio": 1.1802507836990597,
+   "plain_ratio": 1.165522501906941
+  },
+  {
+   "lam": 0.99,
+   "mu": 0.02,
+   "rho": 0.5,
+   "plain_parker": 46.2,
+   "plain_switcher": 53.96666666666667,
+   "gated_parker": 44.3,
+   "gated_switcher": 50.7,
+   "gated_ratio": 1.144469525959368,
+   "plain_ratio": 1.168109668109668
+  },
+  {
+   "lam": 0.99,
+   "mu": 0.05,
+   "rho": 0.2,
+   "plain_parker": 62.666666666666664,
+   "plain_switcher": 64.76666666666667,
+   "gated_parker": 53.03333333333333,
+   "gated_switcher": 64.93333333333334,
+   "gated_ratio": 1.2243871778755502,
+   "plain_ratio": 1.0335106382978723
+  },
+  {
+   "lam": 0.99,
+   "mu": 0.05,
+   "rho": 0.5,
+   "plain_parker": 68.13333333333334,
+   "plain_switcher": 61.4,
+   "gated_parker": 53.766666666666666,
+   "gated_switcher": 61.86666666666667,
+   "gated_ratio": 1.1506509609423434,
+   "plain_ratio": 0.9011741682974559
+  },
+  {
+   "lam": 0.99,
+   "mu": 0.1,
+   "rho": 0.2,
+   "plain_parker": 215.13333333333333,
+   "plain_switcher": 562.3666666666667,
+   "gated_parker": 103.5,
+   "gated_switcher": 178.0,
+   "gated_ratio": 1.7198067632850242,
+   "plain_ratio": 2.6140378060117757
+  },
+  {
+   "lam": 0.99,
+   "mu": 0.1,
+   "rho": 0.5,
+   "plain_parker": 238.26666666666668,
+   "plain_switcher": 1005.8333333333334,
+   "gated_parker": 121.93333333333334,
+   "gated_switcher": 222.33333333333334,
+   "gated_ratio": 1.8234007654455988,
+   "plain_ratio": 4.221460548405148
+  },
+  {
+   "lam": 1.0,
+   "mu": 0.02,
+   "rho": 0.2,
+   "plain_parker": 43.766666666666666,
+   "plain_switcher": 52.46666666666667,
+   "gated_parker": 42.53333333333333,
+   "gated_switcher": 48.766666666666666,
+   "gated_ratio": 1.146551724137931,
+   "plain_ratio": 1.198781416603199
+  },
+  {
+   "lam": 1.0,
+   "mu": 0.02,
+   "rho": 0.5,
+   "plain_parker": 46.2,
+   "plain_switcher": 56.6,
+   "gated_parker": 44.3,
+   "gated_switcher": 51.96666666666667,
+   "gated_ratio": 1.1730624529721596,
+   "plain_ratio": 1.225108225108225
+  },
+  {
+   "lam": 1.0,
+   "mu": 0.05,
+   "rho": 0.2,
+   "plain_parker": 62.666666666666664,
+   "plain_switcher": 65.46666666666667,
+   "gated_parker": 53.03333333333333,
+   "gated_switcher": 63.6,
+   "gated_ratio": 1.1992457573852924,
+   "plain_ratio": 1.04468085106383
+  },
+  {
+   "lam": 1.0,
+   "mu": 0.05,
+   "rho": 0.5,
+   "plain_parker": 68.13333333333334,
+   "plain_switcher": 64.93333333333334,
+   "gated_parker": 53.766666666666666,
+   "gated_switcher": 64.7,
+   "gated_ratio": 1.2033477991320523,
+   "plain_ratio": 0.9530332681017613
+  },
+  {
+   "lam": 1.0,
+   "mu": 0.1,
+   "rho": 0.2,
+   "plain_parker": 215.13333333333333,
+   "plain_switcher": 1216.6333333333334,
+   "gated_parker": 103.5,
+   "gated_switcher": 228.46666666666667,
+   "gated_ratio": 2.2074074074074073,
+   "plain_ratio": 5.655252556554076
+  },
+  {
+   "lam": 1.0,
+   "mu": 0.1,
+   "rho": 0.5,
+   "plain_parker": 238.26666666666668,
+   "plain_switcher": 1454.7666666666667,
+   "gated_parker": 123.8,
+   "gated_switcher": 331.8666666666667,
+   "gated_ratio": 2.6806677436725903,
+   "plain_ratio": 6.105623950755455
+  }
+ ],
+ "selected": null
+}

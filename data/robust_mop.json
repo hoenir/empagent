@@ -1,0 +1,707 @@
+{
+ "beta_sweep": {
+  "theirs|0|-1.0": {
+   "life": 588.9333333333333,
+   "life_sem": 119.14324357856579,
+   "survived": 1,
+   "trips": 15.299379011237283,
+   "on_food": 0.22106171949200396,
+   "far": 0.48266207674087014,
+   "alternation": 0.19249478804725503,
+   "meal_E": [
+    9.0,
+    17.0,
+    27.0
+   ]
+  },
+  "theirs|0|-0.5": {
+   "life": 676.9666666666667,
+   "life_sem": 122.95508462543971,
+   "survived": 1,
+   "trips": 14.882948385597158,
+   "on_food": 0.24669776977372587,
+   "far": 0.4437012060290406,
+   "alternation": 0.18320180383314544,
+   "meal_E": [
+    10.0,
+    19.0,
+    28.0
+   ]
+  },
+  "theirs|0|+0.0": {
+   "life": 882.3333333333334,
+   "life_sem": 162.12999845330114,
+   "survived": 2,
+   "trips": 11.943789435174912,
+   "on_food": 0.26948696147708867,
+   "far": 0.407648724373334,
+   "alternation": 0.13026052104208416,
+   "meal_E": [
+    11.0,
+    20.0,
+    29.0
+   ]
+  },
+  "theirs|0|+0.5": {
+   "life": 1029.1,
+   "life_sem": 167.0468400826822,
+   "survived": 3,
+   "trips": 9.281671160565196,
+   "on_food": 0.3163569243874637,
+   "far": 0.3458000989177,
+   "alternation": 0.09057861254165404,
+   "meal_E": [
+    13.0,
+    22.0,
+    29.0
+   ]
+  },
+  "theirs|1|-1.0": {
+   "life": 337.6,
+   "life_sem": 63.293942983438825,
+   "survived": 0,
+   "trips": 6.763956875949151,
+   "on_food": 0.2779369804098577,
+   "far": 0.38506830139425197,
+   "alternation": 0.061938061938061936,
+   "meal_E": [
+    15.0,
+    22.0,
+    29.0
+   ]
+  },
+  "theirs|1|-0.5": {
+   "life": 368.46666666666664,
+   "life_sem": 64.26660943384678,
+   "survived": 0,
+   "trips": 5.9652105953653365,
+   "on_food": 0.3019088478985384,
+   "far": 0.34453135763440906,
+   "alternation": 0.06393442622950819,
+   "meal_E": [
+    16.0,
+    23.0,
+    29.0
+   ]
+  },
+  "theirs|1|+0.0": {
+   "life": 337.1333333333333,
+   "life_sem": 57.58287846851967,
+   "survived": 0,
+   "trips": 6.192345294398196,
+   "on_food": 0.3250255019532754,
+   "far": 0.32557477091808906,
+   "alternation": 0.054498269896193774,
+   "meal_E": [
+    16.0,
+    24.0,
+    29.0
+   ]
+  },
+  "theirs|1|+0.5": {
+   "life": 372.53333333333336,
+   "life_sem": 62.36965688230823,
+   "survived": 0,
+   "trips": 3.1445974158964907,
+   "on_food": 0.3716730484299003,
+   "far": 0.27858693971558873,
+   "alternation": 0.02826086956521739,
+   "meal_E": [
+    16.0,
+    25.0,
+    29.0
+   ]
+  },
+  "patch|0|-1.0": {
+   "life": 2636.6,
+   "life_sem": 152.29352028841893,
+   "survived": 24,
+   "trips": 30.432747861535397,
+   "on_food": 0.09527619906352812,
+   "far": 0.6672214092217449,
+   "alternation": 0.4540825604655392,
+   "meal_E": [
+    3.0,
+    10.0,
+    19.0
+   ]
+  },
+  "patch|0|-0.5": {
+   "life": 2790.4333333333334,
+   "life_sem": 125.59515953896017,
+   "survived": 26,
+   "trips": 28.889509813864933,
+   "on_food": 0.1056284342606906,
+   "far": 0.6504467051917395,
+   "alternation": 0.42222594703318805,
+   "meal_E": [
+    3.0,
+    11.0,
+    21.0
+   ]
+  },
+  "patch|0|+0.0": {
+   "life": 2618.0,
+   "life_sem": 155.4117408544229,
+   "survived": 24,
+   "trips": 25.53951018027726,
+   "on_food": 0.12023330958144834,
+   "far": 0.6347392829891294,
+   "alternation": 0.36177180282661153,
+   "meal_E": [
+    3.0,
+    12.0,
+    23.0
+   ]
+  },
+  "patch|0|+0.5": {
+   "life": 2634.366666666667,
+   "life_sem": 164.06585784011327,
+   "survived": 25,
+   "trips": 22.27062274684652,
+   "on_food": 0.1408200119684694,
+   "far": 0.6060072061765193,
+   "alternation": 0.2964694502660003,
+   "meal_E": [
+    4.0,
+    14.0,
+    26.0
+   ]
+  },
+  "patch|1|-1.0": {
+   "life": 2312.0333333333333,
+   "life_sem": 169.0243163036482,
+   "survived": 15,
+   "trips": 42.555796892471186,
+   "on_food": 0.1085484250062291,
+   "far": 0.6197407017507768,
+   "alternation": 0.5303056466931445,
+   "meal_E": [
+    16.0,
+    19.0,
+    23.0
+   ]
+  },
+  "patch|1|-0.5": {
+   "life": 1392.0333333333333,
+   "life_sem": 185.86856982567588,
+   "survived": 5,
+   "trips": 33.16615502123126,
+   "on_food": 0.11818876419942127,
+   "far": 0.6013217438119746,
+   "alternation": 0.44070695553021666,
+   "meal_E": [
+    16.0,
+    18.0,
+    25.0
+   ]
+  },
+  "patch|1|+0.0": {
+   "life": 1343.7666666666667,
+   "life_sem": 202.76941030340168,
+   "survived": 7,
+   "trips": 31.20075590577907,
+   "on_food": 0.1366990853538626,
+   "far": 0.5724923901480747,
+   "alternation": 0.38320435654915447,
+   "meal_E": [
+    16.0,
+    19.0,
+    27.0
+   ]
+  },
+  "patch|1|+0.5": {
+   "life": 1270.1666666666667,
+   "life_sem": 166.97507614503382,
+   "survived": 3,
+   "trips": 26.280914663226994,
+   "on_food": 0.159261983308458,
+   "far": 0.5499905497984583,
+   "alternation": 0.31324599708879186,
+   "meal_E": [
+    16.0,
+    19.0,
+    28.0
+   ]
+  }
+ },
+ "anatomy": {
+  "empowerment gain + gate": {
+   "life": 2382.3,
+   "life_sem": 187.3176609184356,
+   "survived": 20,
+   "trips": 73.97639802357766,
+   "on_food": 0.07538285104440143,
+   "far": 0.39420663485505636,
+   "alternation": 0.9981495188749074,
+   "meal_E": [
+    18.0,
+    18.0,
+    18.0
+   ],
+   "excursion": [
+    2.78125,
+    2.4313725490196076,
+    2.0689655172413794,
+    2.25,
+    1.0299946912050963,
+    1.0109799237377681,
+    2.985907087770841,
+    1.0093922651933702
+   ],
+   "deaths": [
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 3,
+     "dist_when_E_below_12": 2,
+     "corrupted_after_last_meal": 12
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 4,
+     "dist_when_E_below_12": 2,
+     "corrupted_after_last_meal": 7
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 3,
+     "dist_when_E_below_12": 2,
+     "corrupted_after_last_meal": 8
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 1,
+     "dist_when_E_below_12": 3,
+     "corrupted_after_last_meal": 9
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 1,
+     "dist_when_E_below_12": 2,
+     "corrupted_after_last_meal": 10
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 4,
+     "dist_when_E_below_12": 4,
+     "corrupted_after_last_meal": 12
+    },
+    {
+     "E_last_meal": 16,
+     "steps_last_meal_to_death": 16,
+     "dist_at_death": 4,
+     "dist_when_E_below_12": 1,
+     "corrupted_after_last_meal": 9
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 4,
+     "dist_when_E_below_12": 1,
+     "corrupted_after_last_meal": 13
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 2,
+     "dist_when_E_below_12": 2,
+     "corrupted_after_last_meal": 7
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 4,
+     "dist_when_E_below_12": 2,
+     "corrupted_after_last_meal": 10
+    }
+   ],
+   "death_summary": {
+    "E_last_meal": 30.0,
+    "dist_at_death": 3.5,
+    "dist_when_E_below_12": 2.0,
+    "corrupted_after_last_meal": 9.5
+   }
+  },
+  "MOP (softmax, beta 0)": {
+   "life": 1343.7666666666667,
+   "life_sem": 202.76941030340168,
+   "survived": 7,
+   "trips": 31.20075590577907,
+   "on_food": 0.1366990853538626,
+   "far": 0.5724923901480747,
+   "alternation": 0.38320435654915447,
+   "meal_E": [
+    16.0,
+    19.0,
+    27.0
+   ],
+   "excursion": [
+    2.518987341772152,
+    1.6065573770491803,
+    0.8941798941798942,
+    0.8696369636963697,
+    1.5874615647420567,
+    2.401857983811626,
+    2.242480295962683,
+    0.735158019100128
+   ],
+   "deaths": [
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 3,
+     "dist_when_E_below_12": 1,
+     "corrupted_after_last_meal": 6
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 2,
+     "dist_when_E_below_12": 1,
+     "corrupted_after_last_meal": 11
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 31,
+     "dist_at_death": 3,
+     "dist_when_E_below_12": 1,
+     "corrupted_after_last_meal": 11
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 3,
+     "dist_when_E_below_12": 1,
+     "corrupted_after_last_meal": 12
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 4,
+     "dist_when_E_below_12": 0,
+     "corrupted_after_last_meal": 7
+    },
+    {
+     "E_last_meal": 15,
+     "steps_last_meal_to_death": 15,
+     "dist_at_death": 3,
+     "dist_when_E_below_12": 2,
+     "corrupted_after_last_meal": 11
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 2,
+     "dist_when_E_below_12": 0,
+     "corrupted_after_last_meal": 7
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 1,
+     "dist_when_E_below_12": 0,
+     "corrupted_after_last_meal": 9
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 4,
+     "dist_when_E_below_12": 4,
+     "corrupted_after_last_meal": 16
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 2,
+     "dist_when_E_below_12": 0,
+     "corrupted_after_last_meal": 7
+    },
+    {
+     "E_last_meal": 29,
+     "steps_last_meal_to_death": 29,
+     "dist_at_death": 4,
+     "dist_when_E_below_12": 0,
+     "corrupted_after_last_meal": 6
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 3,
+     "dist_when_E_below_12": 1,
+     "corrupted_after_last_meal": 9
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 2,
+     "dist_when_E_below_12": 2,
+     "corrupted_after_last_meal": 13
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 2,
+     "dist_when_E_below_12": 3,
+     "corrupted_after_last_meal": 12
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 3,
+     "dist_when_E_below_12": 1,
+     "corrupted_after_last_meal": 10
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 3,
+     "dist_when_E_below_12": 0,
+     "corrupted_after_last_meal": 6
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 31,
+     "dist_at_death": 4,
+     "dist_when_E_below_12": 2,
+     "corrupted_after_last_meal": 12
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 2,
+     "dist_when_E_below_12": 0,
+     "corrupted_after_last_meal": 5
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 3,
+     "dist_when_E_below_12": 1,
+     "corrupted_after_last_meal": 10
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 3,
+     "dist_when_E_below_12": 0,
+     "corrupted_after_last_meal": 12
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 4,
+     "dist_when_E_below_12": 0,
+     "corrupted_after_last_meal": 7
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 4,
+     "dist_when_E_below_12": 1,
+     "corrupted_after_last_meal": 14
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 1,
+     "dist_when_E_below_12": 0,
+     "corrupted_after_last_meal": 5
+    }
+   ],
+   "death_summary": {
+    "E_last_meal": 30.0,
+    "dist_at_death": 3.0,
+    "dist_when_E_below_12": 1.0,
+    "corrupted_after_last_meal": 10.0
+   },
+   "policy_entropy_by_E": [
+    null,
+    null,
+    0.0893535773322711,
+    0.10919821884949119,
+    0.47660077675519297,
+    0.852053942561455,
+    0.9085545176026943,
+    0.7683549755794752
+   ]
+  },
+  "MOP values, argmax policy": {
+   "life": 2689.733333333333,
+   "life_sem": 127.77229146975863,
+   "survived": 24,
+   "trips": 108.89175735206982,
+   "on_food": 0.11924048970450228,
+   "far": 0.6604970275173934,
+   "alternation": 0.9994325275224152,
+   "meal_E": [
+    22.0,
+    22.0,
+    22.0
+   ],
+   "excursion": [
+    2.619047619047619,
+    1.875,
+    0.603448275862069,
+    0.13533834586466165,
+    0.17857142857142858,
+    1.4887510974539069,
+    3.0012719769348184,
+    1.0091663523198793
+   ],
+   "deaths": [
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 4,
+     "dist_when_E_below_12": 0,
+     "corrupted_after_last_meal": 8
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 4,
+     "dist_when_E_below_12": 1,
+     "corrupted_after_last_meal": 9
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 4,
+     "dist_when_E_below_12": 0,
+     "corrupted_after_last_meal": 9
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 3,
+     "dist_when_E_below_12": 0,
+     "corrupted_after_last_meal": 5
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 2,
+     "dist_when_E_below_12": 0,
+     "corrupted_after_last_meal": 8
+    },
+    {
+     "E_last_meal": 30,
+     "steps_last_meal_to_death": 30,
+     "dist_at_death": 3,
+     "dist_when_E_below_12": 1,
+     "corrupted_after_last_meal": 11
+    }
+   ],
+   "death_summary": {
+    "E_last_meal": 30.0,
+    "dist_at_death": 3.5,
+    "dist_when_E_below_12": 0.0,
+    "corrupted_after_last_meal": 8.5
+   }
+  }
+ },
+ "argmax_all": {
+  "theirs|0|softmax": {
+   "life": 882.3333333333334,
+   "sem": 162.12999845330114,
+   "survived": 2,
+   "alt": 0.13026052104208416,
+   "mealE": [
+    11.0,
+    20.0,
+    29.0
+   ],
+   "trips": 11.943789435174912
+  },
+  "theirs|0|argmax": {
+   "life": 1780.0,
+   "sem": 200.16292214668243,
+   "survived": 10,
+   "alt": 0.0,
+   "mealE": [
+    16.0,
+    23.0,
+    23.0
+   ],
+   "trips": 0.0
+  },
+  "theirs|1|softmax": {
+   "life": 337.1333333333333,
+   "sem": 57.58287846851967,
+   "survived": 0,
+   "alt": 0.054498269896193774,
+   "mealE": [
+    16.0,
+    24.0,
+    29.0
+   ],
+   "trips": 6.192345294398196
+  },
+  "theirs|1|argmax": {
+   "life": 679.2,
+   "sem": 122.57723251499229,
+   "survived": 0,
+   "alt": 0.0,
+   "mealE": [
+    20.0,
+    26.0,
+    28.0
+   ],
+   "trips": 0.0
+  },
+  "patch|0|softmax": {
+   "life": 2618.0,
+   "sem": 155.4117408544229,
+   "survived": 24,
+   "alt": 0.36177180282661153,
+   "mealE": [
+    3.0,
+    12.0,
+    23.0
+   ],
+   "trips": 25.53951018027726
+  },
+  "patch|0|argmax": {
+   "life": 3000.0,
+   "sem": 0.0,
+   "survived": 30,
+   "alt": 0.997979797979798,
+   "mealE": [
+    13.0,
+    13.0,
+    13.0
+   ],
+   "trips": 66.0
+  },
+  "patch|1|softmax": {
+   "life": 1343.7666666666667,
+   "sem": 202.76941030340168,
+   "survived": 7,
+   "alt": 0.38320435654915447,
+   "mealE": [
+    16.0,
+    19.0,
+    27.0
+   ],
+   "trips": 31.20075590577907
+  },
+  "patch|1|argmax": {
+   "life": 2689.733333333333,
+   "sem": 127.77229146975863,
+   "survived": 24,
+   "alt": 0.9994325275224152,
+   "mealE": [
+    22.0,
+    22.0,
+    22.0
+   ],
+   "trips": 108.89175735206982
+  }
+ }
+}
