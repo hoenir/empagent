@@ -148,7 +148,7 @@ def action_mask(walls='legal'):
 
 
 def value_iteration(mats, gamma=0.99, tol=1e-2, max_iter=3000, verbose=False,
-                    walls='legal', beta=0.0, H=None):
+                    walls='legal', beta=0.0, H=None, reward=None, alpha=1.0):
     """Their Eq. 6.  Returns V (NS,) and Q (NA, NS).
 
     Q includes the beta * H term, so the policy is softmax(Q) for any beta.
@@ -159,12 +159,17 @@ def value_iteration(mats, gamma=0.99, tol=1e-2, max_iter=3000, verbose=False,
     alive = alive_mask()
     avail = action_mask(walls)
     bH = np.zeros((len(mats), NS)) if (beta == 0.0 or H is None) else beta * H
+    if reward is not None:                       # per-state reward, e.g. empowerment
+        bH = bH + reward[None, :]
     V = np.zeros(NS)
     for it in range(max_iter):
         Q = bH + np.stack([gamma * (T @ V) for T in mats])
         Q = np.where(avail, Q, -np.inf)
         m = Q.max(axis=0)
-        Vn = m + np.log(np.exp(Q - m).sum(axis=0))
+        if alpha > 0:
+            Vn = m + alpha * np.log(np.exp((Q - m) / alpha).sum(axis=0))
+        else:                                    # alpha = 0: hard Bellman max
+            Vn = m
         Vn[~alive] = 0.0
         delta = float(np.abs(Vn - V).max())
         V = Vn
@@ -187,8 +192,9 @@ class MOPAgent:
 
     belief_step = 0.0
 
-    def __init__(self, Q, greedy=False):
+    def __init__(self, Q, greedy=False, alpha=1.0):
         self.greedy = greedy
+        self.alpha = alpha
         # unavailable actions carry -inf; a finite floor keeps the bilinear
         # interpolation free of 0 * inf while still giving them zero probability
         self.Q = np.where(np.isfinite(Q), Q, -1e9).reshape(NA, NPOS, NE, NB, NB)
@@ -203,7 +209,7 @@ class MOPAgent:
 
     def policy(self, x, E, b1, b2):
         q = self.q(x, E, b1, b2)
-        p = np.exp(q - q.max())
+        p = np.exp((q - q.max()) / self.alpha)
         return p / p.sum()
 
     def act(self, x, E, b1, b2, rng, gated=False):

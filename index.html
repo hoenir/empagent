@@ -103,7 +103,7 @@
     structure, climbs a developmental curriculum with no schedule. <b>Part III:</b> because empowerment counts
     only the futures you <i>cause</i>, it sidesteps the noisy-TV and grand-roulette traps that snare
     information-gain and maximum-occupancy — and the move that makes it lively rather than throned, taking a
-    derivative and embodying it, is the one corner of the landscape that escapes every paradox. Finally, on a foraging testbed built by MOP's own authors, the body bottleneck alone turns their starving empowerment agent into one that eats at a set point, and where switching food sources pays it switches every time; MOP's <i>values</i> prescribe the same strategy, and what separates the two in behaviour is the variability MOP prescribes.</p>
+    derivative and embodying it, is the one corner of the landscape that escapes every paradox. Finally, on a foraging testbed built by MOP's own authors, the body bottleneck alone turns their starving empowerment agent into one that eats at a set point, and where switching food sources pays it switches every time; MOP's <i>values</i> prescribe the same strategy, and once empowerment is counted the way MOP counts, cumulatively, it matches those values and outperforms MOP as prescribed.</p>
   </div>
 
   <div class="partdiv">
@@ -535,19 +535,27 @@
   progress (Schmidhuber's POWERPLAY) as drivers of staged curricula; the noisy-TV failure of prediction-error
   curiosity; and empowerment combined with skills and tools (Hierarchical Empowerment, Levy et al. 2023;
   Object Empowerment, Rasheed, Polani &amp; Catenacci Volpi 2023) — though, we checked, in ways that do not
-  show staged emergence. We reuse all of it.</p>
+  show staged emergence. And, closest to Part I, the Maximum Occupancy Principle (Ramírez-Ruiz et al., 2024)
+  already obtains a knob-free, energy-dependent switch between variable exploration when fed and
+  goal-directed foraging when hungry from a single principle (§§21–22). We reuse all of it.</p>
 
   <h3>The contribution, stated modestly.</h3>
   <ul>
-    <li><b>Explore/exploit as temporal structure from one functional.</b> The established hybrids produce a
+    <li><b>Explore/exploit as temporal structure from one functional — directed.</b> The established hybrids produce a
     <i>static weighted sum</i> of two terms each step. Here the two behaviours are <i>phases</i> of a single
     empowerment-gain appetite, mutually exclusive in time (Fig.&nbsp;5b), and the balance is a physical
     timescale (Fig.&nbsp;6a) rather than a coefficient. Raced against that weighted sum in the same world
     (Fig.&nbsp;9), our drive reaches a balanced-and-alive operating point that <i>no</i> value of the
-    baseline's weight β attains. That is a falsifiable structural difference, and it holds.</li>
-    <li><b>Homeostasis without a hunger term.</b> "Hunger" is the body-binding regime of the empowerment
-    bottleneck; the satiation→exploration flip is a bottleneck handover via the data-processing
-    inequality (Fig.&nbsp;1b), not a switch we wrote.</li>
+    baseline's weight β attains. That is a falsifiable structural difference, and it holds. A single
+    principle with a knob-free explore/exploit switch is not itself new — MOP has one — so the specific claim
+    is narrower: our venture phase is <i>directed</i>, toward control that can still be learned, where MOP's
+    exploration is undirected variability that the noisy TV also captures (Fig.&nbsp;16).</li>
+    <li><b>Homeostasis without a hunger term — by one of two routes.</b> "Hunger" is the body-binding
+    regime of the empowerment bottleneck; the satiation→exploration flip is a bottleneck handover via the
+    data-processing inequality (Fig.&nbsp;1b), not a switch we wrote. §22 shows the other route: counted
+    cumulatively over a long horizon, empowerment values survival because death ends all control, with no
+    body coupling at all. The body bottleneck is what does the job for an agent that cannot plan that
+    far.</li>
     <li><b>A viability-gated epistemic face</b> that makes "consolidate before you can explore" a
     consequence of the same inequality, not a rule.</li>
     <li><b>Robustness to the observable</b> (Fig.&nbsp;10): the rhythm is identical under positional and
@@ -578,7 +586,9 @@
     so the gate is the §2 bottleneck applied over time. It does cast a reward-shaped shadow — every
     long-horizon value estimate does — but the test that matters is <i>derived versus posited</i>, and
     <i>d</i><sub>home</sub> is a measured metabolic cost, not a free dial. The planner's discount is the one
-    genuine modeling choice a critic can still press on.</li>
+    genuine modeling choice a critic can still press on. §22 adds a qualification: where exact long-horizon
+    planning is tractable, cumulative empowerment needs no gate at all, so the gate is best read as a
+    short-horizon stand-in for that long-horizon value rather than an irreducible ingredient.</li>
     <li><b>One prediction did not survive contact.</b> The design anticipated the period scaling with the
     forgetting rate λ as well as δ. It did not: δ sets the period; λ sets exploration breadth. We report
     what happened, not what was hoped.</li>
@@ -591,9 +601,14 @@
     unlock or two (the acquisition <i>order</i> stays cleanly forced). And the body is relaxed in Part II,
     isolating <i>where</i> curiosity points from <i>when</i> to refuel.</li>
     <li><b>On someone else's testbed the support is narrower</b> (§22). The body bottleneck carries over
-    cleanly; the venture phase is not tested there; without a body, empowerment eats only at the last
-    possible step; and MOP's value function reaches the same foraging strategy and is the better
-    homeostat.</li>
+    cleanly, but the venture phase is untested there, and the best agent we ran is not Part I's:
+    empowerment as the reward in MOP's long-horizon solver matched or beat every other agent with an
+    objective, in every condition. Part I's mechanism is a short-horizon route to what a better solver
+    reaches directly.</li>
+    <li><b>Part II's babbling is bolted on.</b> A greedy agent never tries the actions it needs in order to
+    learn local control, so Part II adds random actions (ε≈0.3) by hand. MOP's soft policy supplies that
+    variability from its objective, and so does control-occupancy's (§22); Part II has not yet been run
+    that way.</li>
   </ul>
 
   <h3>Why it might matter anyway.</h3>
@@ -604,6 +619,11 @@
   normative basis: the conservative phase is not opposed to growth but its precondition, because control
   gains are unrealizable on a depleted platform. Both are extrapolations from a 93-cell toy, and we hold
   them loosely.</p>
+  <p>A third lesson comes from §22. Among reward-free principles the useful question may be less
+  <i>which</i> principle than <i>what you count</i> and <i>how you count it</i>. Counting only control,
+  rather than all variety, is what buys immunity to the noisy TV and the grand roulette; counting it
+  cumulatively, over a long horizon, is what buys survival with no hunger term. Empowerment counted MOP's
+  way matched or beat every other agent with an objective on the foraging tests we ran.</p>
 
   <h2><span class="n">21</span>The landscape: empowerment among the reward-free principles</h2>
   <p>The sharpest neighbour to this work is the <b>Maximum Occupancy Principle</b> (Ramírez-Ruiz, Grytskyy,
@@ -762,15 +782,16 @@
   alternate sources rises from 5–13% in their world to 36–38% in the patch world. But it responds
   softly: it still switches where switching kills, and under-switches where switching pays. On survival
   neither principle wins overall. Without a body coupling in their world, MOP lives 882 steps and
-  empowerment 48: empowerment has no reason to eat when food changes nothing it controls, whereas MOP
-  values staying alive directly. With the gate in the patch world, empowerment lives 2382 steps and MOP 1344
+  empowerment 48: our one-shot empowerment agent has no reason to eat when food changes nothing it
+  controls within its five-step view, whereas MOP values staying alive directly. With the gate in the patch world, empowerment lives 2382 steps and MOP 1344
   (20 against 7 of 30 episodes reaching the cap). The other two conditions are ties.</p>
   <p>Then the decomposition (Fig.&nbsp;20). Keep MOP's values and replace its softmax by an argmax, and the
   softness disappears. Argmax-MOP takes 0% of its meals at alternate sources in their world and 100% in the
   patch world — exactly empowerment's pattern — and it outlives its own softmax version and matches or outlives empowerment in
   every condition (1780, 679, 3000 and 2690 steps). It also sets an eating point with or without a body
   (<i>E</i>=13–26), which empowerment cannot do without the gate. So the two principles' <i>values</i> agree on
-  where to forage, and MOP's values are the better homeostat. What separates the agents as prescribed is MOP's
+  where to forage, and MOP's values make a better homeostat than our one-shot empowerment agent — a gap
+  the next subsection traces to the solver. What separates the agents as prescribed is MOP's
   commitment to behavioural variability: the softmax that is MOP's optimal policy, its “liveliness,” costs it
   half its lifespan in the gated patch world. And the 13.3 trips that their paper presents as MOP's
   adaptive exploration are, by its own values — in our calibrated reimplementation — noise: in their world those values say
@@ -782,38 +803,73 @@
     exactly — 0% where switching is lethal, 100% where it pays — tracking the objective-free references (the
     parker in their world, the switcher in the patch world). MOP as prescribed (softmax) tracks the payoff only
     softly. (b) Survival: MOP's values under argmax outlive its prescribed softmax version in both worlds, by about
-    twofold; the parker still wins where switching is lethal. (c) When to eat (all four conditions): empowerment needs the body gate to eat before the last
-    step; MOP's values set an eating point either way.</figcaption>
+    twofold; the parker still wins where switching is lethal. (c) When to eat (all four conditions): our one-shot empowerment agent needs the body gate to eat
+    before the last step; MOP's values set an eating point either way.</figcaption>
+  </figure>
+
+  <h3>What you count, and how you count it.</h3>
+  <p>The comparison so far changed two things at once: the objective (empowerment or path entropy) and the
+  solver. MOP was solved exactly, with a horizon of about 100 steps; our empowerment agent looks five steps
+  ahead and plans a single hop. So we ran empowerment through MOP's own machinery — the same value iteration
+  over position, energy and belief, the same γ=0.99 and wall convention — with empowerment as the per-step
+  reward. This is the control-occupancy of §21, now in a belief POMDP. We ran it two ways: greedily,
+  maximising the discounted sum of empowerment; and softly, maximising empowerment plus action entropy, both
+  in bits with weight one, which is MOP with control added.</p>
+  <p>The homeostasis gap closes (Fig.&nbsp;21). Death ends all future control just as it ends all future
+  paths, so cumulative empowerment values survival with no body coupling at all: in their world without a
+  gate it eats at a set point near <i>E</i>=28 and lives 1944 steps, against 48 for the one-shot agent and
+  1780 for MOP's own values. Across the four conditions it matches MOP's values everywhere and beats them in
+  the gated patch world (2994 against 2690 steps; 29 of 30 episodes reach the cap). The soft version outlives
+  MOP as prescribed in every condition and at every temperature we tried (α from 0.25 to 2; narrowly in
+  the ungated patch world, where both approach the cap). Its variability is also better aimed with the body
+  gate on: it takes 0–4% of its meals at alternate sources where switching is lethal, against MOP's 5–13%,
+  and 76% where switching pays, against MOP's 38% (without the gate the two are level there, 35% and 36%). MOP's advantage in the previous
+  subsection belonged to its solver, not its objective. What you count — control rather than all variety —
+  is what makes empowerment immune to the noisy TV and the roulette (§21); how you count it — cumulatively —
+  is what makes it a homeostat.</p>
+  <figure>
+    <img src="paper/figs/myl7_occupancy.png" alt="what you count versus how you count it">
+    <figcaption><b>Figure 21.</b> What you count versus how you count it, in all four conditions. Colour gives
+    the objective — red: empowerment with our one-shot planner; grey: MOP; teal: empowerment counted MOP's
+    way, as the per-step reward in MOP's solver. Filled bars are greedy policies, open bars soft ones.
+    (a) Survival, with the objective-free references. (b) Without a body gate, only the one-shot planner
+    waits until the last step to eat; every cumulative agent, empowerment or MOP, keeps a set point.
+    (c) Where to eat with the gate on: the two greedy agents coincide (0% to 100%, dashed); of the two soft
+    agents, control-occupancy tracks the payoff more sharply than MOP.</figcaption>
   </figure>
 
   <h3>What this does and does not show.</h3>
   <ul>
     <li><b>Part I's somatic face survives outside our arena.</b> In a world we did not build, adding only the
     body bottleneck turns a starving empowerment agent into one that forages at a set point. That is the
-    strongest external support Part I has.</li>
+    strongest external support Part I has. It holds for an agent that plans a few steps ahead; for one that
+    counts empowerment over a long horizon, death alone makes food matter (above).</li>
     <li><b>The spatial alternation here is not Part I's venture.</b> It comes from planning over destinations,
     and it appears without the gate. The epistemic face, Part I's driver of venturing, has nothing to work on
     in a world with known dynamics, so this test neither confirms nor refutes it.</li>
-    <li><b>Empowerment does not beat MOP's values.</b> On a foraging task with no adversarial structure the two
-    value functions prescribe the same strategy, and MOP's is the better homeostat. The paradox map of §21
-    describes where the principles part company, in worlds built to trap one of them; outside those worlds
-    they largely converge. Making MOP penalise unpredictable transitions (β=−1, which Moreno-Bote notes approximates
-    empowerment, arXiv:2609.07508) moves it most of the way: in the gated patch world its lifespan rises from 1344 to 2312, though it also
-    switches more in their world, where switching costs it (Fig.&nbsp;21).</li>
-    <li><b>Where survival comes from differs.</b> For MOP it comes from a posited terminal condition (zero value
-    at death; their own appendix shows, for active inference, how strongly a terminal condition sets
-    behaviour). For empowerment it comes
-    from a body that throttles control, and without one, empowerment eats only at the last possible step. A
-    companion paper from the same group (Moreno-Bote, arXiv:2609.07508) takes the third route and posits
-    homeostasis as the objective.</li>
-    <li><b>Caveats.</b> We designed the patch world, under a rule stated in advance. Our empowerment agent
-    plans heuristically over destinations with 5-step capacities, while MOP is solved exactly with a
-    ~100-step horizon, so the computational comparison favours MOP. Thirty episodes per cell; lifespans near
-    the 3000-step cap are censored.</li>
+    <li><b>With our planner, empowerment does not beat MOP's values; counted MOP's way, it does.</b> On a
+    foraging task with no adversarial structure the two principles' values prescribe the same strategy. With
+    our one-shot planner MOP's values are the better homeostat; in MOP's solver empowerment's are at least as
+    good, and, run softly, better aimed than MOP as prescribed. The paradox map of §21 describes where the
+    principles part company, in worlds built to trap one of them; here they converge on strategy and differ
+    in what their variability is spent on. Making MOP penalise unpredictable transitions (β=−1, which
+    Moreno-Bote notes approximates empowerment, arXiv:2609.07508) moves MOP the same way: in the gated patch
+    world its lifespan rises from 1344 to 2312, though it also switches more in their world, where switching
+    costs it (Fig.&nbsp;22).</li>
+    <li><b>Where survival comes from.</b> For MOP and for cumulative empowerment alike, from death ending
+    everything the objective counts — paths or control (their own appendix shows, for active inference, how
+    strongly such a terminal condition sets behaviour). The body gate is the route for an agent that cannot
+    plan that far, which is Part I's situation: there the body is a slow variable beyond any horizon we could
+    plan over (§13); here the world is small enough for exact long-horizon planning. A companion paper from
+    the same group (Moreno-Bote, arXiv:2609.07508) takes a third route and posits homeostasis as the
+    objective.</li>
+    <li><b>Caveats.</b> We designed the patch world, under a rule stated in advance. In MOP's solver the two
+    objectives are compared like for like; with our one-shot planner they are not, and that gap is the
+    solver's. Thirty episodes per cell; lifespans near the 3000-step cap are censored.</li>
   </ul>
   <figure>
     <img src="paper/figs/myl6_robustness.png" alt="MOP beta sweep">
-    <figcaption><b>Figure 21.</b> Supplementary: MOP's β, the weight on the entropy of the next state, in all
+    <figcaption><b>Figure 22.</b> Supplementary: MOP's β, the weight on the entropy of the next state, in all
     four conditions (calibrated MOP, softmax policy). (a) Penalising unpredictable transitions (β&lt;0)
     raises switching everywhere, in their world as well as the patch world, so β shifts how much MOP switches
     rather than how well it tracks the payoff. (b) In the gated patch world β=−1 lifts MOP's lifespan from
@@ -929,6 +985,11 @@
   <code>empower/mylonas.py</code>, <code>empower/mop_belief.py</code>, <code>build_mylonas_tables.py</code>,
   <code>select_patch_world.py</code>, <code>make_mylonas_figs.py</code>, <code>run_mop.py</code>,
   <code>robust_mop.py</code>, <code>make_contingency_fig.py</code>, <code>tests/test_mylonas.py</code>.</p>
+  <p><b>Control-occupancy.</b> The same solver with the empowerment table as a per-state reward (read
+  bilinearly on the 0.1 belief grid, zero at death): greedy (a hard Bellman max, deterministic policy) and
+  soft at temperature α=1/ln&nbsp;2, which maximises empowerment plus action entropy with both in bits and
+  weight one; α swept over 0.25–2 as a check. Code: <code>run_control_occupancy.py</code>,
+  <code>make_occupancy_fig.py</code>.</p>
 
   <div class="footer">
     <p>Built as a minimal-model exploration of intrinsic motivation, in three parts from one quantity.

@@ -7,3 +7,4 @@ project_review_report_gemini.md
 .gstack/
 data/mop_*.npz
 data/*_log.txt
+data/co_*.npz

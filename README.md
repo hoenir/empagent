@@ -27,6 +27,7 @@ browser (the demos run the actual agents in JavaScript — nothing is pre-record
 | `make_figures.py` | reproduces every Part I figure + demo data from one script |
 | `make_progression_figs.py` | reproduces the Part II/III figures + demo data |
 | `build_mylonas_tables.py`, `select_patch_world.py`, `make_mylonas_figs.py`, `run_mop.py`, `robust_mop.py`, `make_contingency_fig.py` | the §22 foraging replication (tables, world selection, figures `myl*`/`mylp*`, MOP, robustness) |
+| `run_control_occupancy.py`, `make_occupancy_fig.py` | empowerment as the reward in MOP's solver (§22, Fig. 21) |
 | `tests/test_mylonas.py` | brute-force check of the §22 empowerment computation |
 | `paper/figs/` | generated figures (`fig*` = Part I, `prog*` = Part II/III) |
 | `demo/` | `data.js`/`demo.js` (Part I cycle) and `prog_data.js`/`progression.js` (Part II curiosity) |
@@ -66,6 +67,7 @@ python make_figures.py field headline scaling demo
 python build_mylonas_tables.py && MYL_WORLD=patch python build_mylonas_tables.py
 MYL_WORLD=theirs python make_mylonas_figs.py && MYL_WORLD=patch python make_mylonas_figs.py
 python run_mop.py && python robust_mop.py && python make_contingency_fig.py
+python run_control_occupancy.py && python make_occupancy_fig.py
 ```
 
 Then serve the folder and open `index.html`:
