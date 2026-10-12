@@ -549,7 +549,8 @@
     baseline's weight β attains. That is a falsifiable structural difference, and it holds. A single
     principle with a knob-free explore/exploit switch is not itself new — MOP has one — so the specific claim
     is narrower: our venture phase is <i>directed</i>, toward control that can still be learned, where MOP's
-    exploration is undirected variability that the noisy TV also captures (Fig.&nbsp;16).</li>
+    exploration is undirected variability — indifferent to what can be learned, and captured by the noisy
+    TV whenever MOP rewards next-state entropy (Fig.&nbsp;16).</li>
     <li><b>Homeostasis without a hunger term — by one of two routes.</b> "Hunger" is the body-binding
     regime of the empowerment bottleneck; the satiation→exploration flip is a bottleneck handover via the
     data-processing inequality (Fig.&nbsp;1b), not a switch we wrote. §22 shows the other route: counted
@@ -637,27 +638,33 @@
   so a MOP agent shuns them with no survival term. Tellingly, they single out empowerment as the foil,
   reporting that empowerment agents “collapse to deterministic policies with little behavioural variability,”
   parking at the highest-control state and staying there (the same parking §5's level drive shows).</p>
-  <p>But MOP's state-entropy term, <i>H</i>(<i>S'</i>|<i>s,a</i>), is exactly the next-state randomness that
-  empowerment <i>subtracts</i> — the noise. In a world with a genuine noise source, MOP should therefore be
-  <i>drawn</i> to the noisy TV: maximal state entropy is maximal occupancy. So we asked the natural question:
-  what if occupancy were measured over <i>controllable</i> futures instead of all futures? We ran MOP's own
-  soft value iteration in our noise arena under two rewards — MOP's <i>H</i>(<i>S'</i>) versus the empowerment
-  <i>E</i>(<i>s</i>) (controllable reach) — changing nothing else.</p>
+  <p>MOP's objective can include a state-entropy term, β·<i>H</i>(<i>S'</i>|<i>s,a</i>), and that term is
+  exactly the next-state randomness that empowerment <i>subtracts</i> — the noise. With it, MOP should be
+  <i>drawn</i> to a noisy TV: maximal state entropy is maximal occupancy. Its authors usually simulate β=0,
+  rewarding action entropy alone, and then nothing in the objective pays for noise. So we ran MOP's own soft
+  value iteration in our noise arena in both forms — with the state-entropy term (β=2) and without it (β=0) —
+  and asked the natural further question: what if occupancy were measured over <i>controllable</i> futures
+  instead of all futures? The third arm rewards the empowerment <i>E</i>(<i>s</i>) (controllable reach),
+  changing nothing else.</p>
   <figure>
     <img src="paper/figs/prog4_mop.png" alt="MOP vs control-occupancy">
-    <figcaption><b>Figure 16.</b> (a) Same Boltzmann machinery, different reward: rewarding next-state entropy
-    (MOP) spends <b>98%</b> of the time on the noisy TV; rewarding empowerment spends <b>0%</b> — and still
-    roams (it occupies the highest-control hub variably, not a single parked cell). (b) A map of the
+    <figcaption><b>Figure 16.</b> (a) Same Boltzmann machinery, different objective. MOP with a state-entropy
+    term spends <b>98%</b> of its time on the noisy TV (any β ≥ 0.25 gives 95–98%). MOP at β=0, its authors'
+    usual setting, spends <b>19%</b>, a random walk's share; with the action sets that reproduce their foraging
+    results (§22) it avoids the noise (1–5%). Rewarding empowerment spends <b>0%</b> — and still roams (it
+    occupies the highest-control hub variably, not a single parked cell). (b) A map of the
     paradoxes. Two independent routes ignore the noisy TV — <i>control-grounding</i> (right column: a noisy
     region has no empowerment) and <i>taking the derivative</i> (top row: learning <i>progress</i> on
-    unlearnable noise is zero, the Oudeyer–Schmidhuber fix). MOP and raw info-gain sit alone in the corner
-    with neither protection; empowerment's own failure — collapse to a fixed point (“the throne”) — lives in
+    unlearnable noise is zero, the Oudeyer–Schmidhuber fix). Raw info-gain, and MOP when it rewards
+    state entropy, sit in the corner with neither protection; empowerment's own failure — collapse to a fixed point (“the throne”) — lives in
     the control/level corner, and the <i>derivative</i> is what escapes it (the corner that also carries the
     curriculum of §19 and Part I's explore/exploit rhythm).</figcaption>
   </figure>
   <p>So a control-weighted occupancy keeps what is attractive about MOP — the lively, anti-parking, reward-free
-  drive — while shedding its blind spot. More broadly, the comparison resolves into two axes (Fig.&nbsp;16b):
-  <b>what you reward</b> (occupancy/entropy vs. control) decides whether you chase or ignore the noisy TV, and
+  drive — while shedding the noisy-TV blind spot that MOP has whenever it rewards next-state entropy. More
+  broadly, the comparison resolves into two axes (Fig.&nbsp;16b): <b>what you reward</b> (occupancy/entropy
+  vs. control; for MOP, whether its state-entropy term is on) decides whether you chase or ignore the noisy
+  TV, and
   <b>level vs. progress</b> (a quantity vs. its derivative) decides whether you settle into stationary
   behaviour or develop temporal structure — the explore/exploit rhythm of Part I, and the curriculum
   of §19. MOP is elegant and parsimonious for survival and open-ended liveliness; empowerment is the better
@@ -674,16 +681,22 @@
   <p>Two of these paradoxes are the <i>same</i> trap once you ask about control. The noisy TV (uncontrollable
   <i>sensory</i> diversity) and the grand roulette (uncontrollable <i>action-state</i> diversity) are both
   <b>variety the agent does not cause</b> — and empowerment, which counts only the futures your actions
-  <i>determine</i>, is blind to both. We built MOP's nemesis to check: a control room (deterministic moves,
-  empowerment 2.3 bits) beside a gambling room (interchangeable random bets, empowerment 1.0 bit).</p>
+  <i>determine</i>, is blind to both. We built MOP's nemesis to check: a control room (four deterministic
+  moves, empowerment 2.3 bits) beside a gambling room (interchangeable random bets, empowerment 1.0 bit),
+  varying how many bets it offers, with and without MOP's state-entropy term.</p>
   <figure>
     <img src="paper/figs/prog5_roulette.png" alt="grand roulette taxonomy">
-    <figcaption><b>Figure 17.</b> (a) Under MOP's own soft value iteration, rewarding path entropy sends the
-    agent to gamble (<b>100%</b> of its time in the roulette); rewarding empowerment keeps it in the control
-    room (<b>98%</b>) — and the trap does not depend on the number of bets, because it is the uncontrollable
-    <i>outcome</i> that snares MOP, exactly as in the noisy TV. (b) The empirical taxonomy: occupancy (MOP)
-    and curiosity/info-gain are both trapped in <i>both</i> adversarial worlds; control-grounding escapes
-    both — one antidote, because only diversity you cause counts.</figcaption>
+    <figcaption><b>Figure 17.</b> (a) Time in the roulette as the number of interchangeable bets grows, under
+    MOP's own soft value iteration. With a state-entropy term (β=1) MOP gambles almost always (96–100%),
+    whatever the number of bets: the uncontrollable <i>outcome</i> snares it, as the noisy TV does. At β=0,
+    its authors' usual setting, the trap becomes a count: MOP avoids a roulette offering fewer bets than the
+    control room offers moves (4% with two bets), is indifferent when they are equal (44%), and gambles once
+    bets outnumber moves (96% with eight, 99% with sixteen) — it counts choices that change nothing as
+    distinct options, the review's “myriad of possible bets”. A curiosity agent driven by model uncertainty
+    gambles at every count (100%); control-occupancy never does (0%). (b) The taxonomy, every bar measured:
+    the noisy TV in the arena of Fig.&nbsp;16 (the curiosity bar is Part II's surprise agent,
+    Fig.&nbsp;13), the roulette with eight bets. Only control-grounding escapes both traps in every form
+    tested — because only diversity you cause counts.</figcaption>
   </figure>
 
   <h3>Empowerment's own paradox — and the way out.</h3>
@@ -944,11 +957,15 @@
   <p><b>The dependency environment</b> (§19) augments the state to <code>(cell, gate-bits)</code> — a switch
   latches its gate, a gate is passable only when set — and computes empowerment (<i>n</i>=4–5) over it; the
   unlock staircase is read on an idealised operator with only the first <i>k</i> switches functional, the
-  forced order on the autonomous agent. <b>The landscape comparison</b> (§21) runs MOP's soft value iteration
-  <i>V</i>(<i>s</i>)=α·logsumexp<sub><i>a</i></sub>[(<i>r</i>+γ𝔼[<i>V'</i>])/α] (α=0.5, γ=0.95) under two
-  rewards — next-state entropy <i>H</i>(<i>S'</i>) (MOP) vs the empowerment field <i>E</i>(<i>s</i>) — on the
-  noise arena and on a small grand-roulette MDP (a control room beside a gambling room of interchangeable
-  random bets, empowerment by Blahut–Arimoto per state). Part-II figures and demo regenerate from
+  forced order on the autonomous agent. <b>The landscape comparison</b> (§21) runs MOP in its own form,
+  <i>V</i>(<i>s</i>)=ln&nbsp;Σ<sub><i>a</i></sub>exp[β<i>H</i>(<i>S'</i>|<i>s,a</i>)+γ𝔼<i>V'</i>], with β=2
+  (equivalent to the original recipe, reward <i>H</i>(<i>S'</i>) at temperature 0.5) and β=0, against
+  control-occupancy, soft value iteration with the empowerment field <i>E</i>(<i>s</i>) as reward (temperature
+  0.5 in the arena, 0.4 in the roulette); γ=0.95 in the noise arena and 0.9 in a small grand-roulette MDP (a
+  control room beside a gambling room of 2–16 interchangeable random bets, empowerment by Blahut–Arimoto per
+  state). The roulette's curiosity agent uses its steady-state reward, model uncertainty
+  <i>u</i>=1−mean<sub><i>a</i></sub>max<i>p</i>, at temperature 0.05. A sweep over β (0–2), both wall
+  conventions and γ=0.99 is in <code>check_mop_noise.py</code> / <code>data/mop_noise_check.json</code>. Part-II figures and demo regenerate from
   <code>make_progression_figs.py</code>; code in <code>empower/progression.py</code>,
   <code>empower/gated.py</code>, <code>empower/paradox.py</code>, <code>demo/progression.js</code>.</p>
 

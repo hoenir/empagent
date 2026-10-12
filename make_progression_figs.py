@@ -1,4 +1,5 @@
 """Figures for the developmental-progression sibling study."""
+import json
 import os, numpy as np
 import matplotlib
 matplotlib.use("Agg")
@@ -194,9 +195,12 @@ def fig_stages():
 
 
 def fig_mop():
-    """MOP vs control-occupancy: the same Boltzmann soft-value-iteration machinery,
-    rewarding next-state entropy H(S') (MOP, chases noise) vs empowerment E (control,
-    avoids it). Plus a 2x2 map placing MOP, prediction learning-progress, and us."""
+    """MOP vs control-occupancy in the noise arena, with MOP in its own form
+    V = ln sum_a exp[beta H(S'|s,a) + gamma E V] (action entropy weight 1).
+
+    beta = 2 reproduces the original recipe (reward H(S'), temperature 0.5).
+    beta = 0 is the setting MOP's authors simulate: nothing in the objective then
+    pays for noise.  Control-occupancy rewards empowerment.  Plus a 2x2 map."""
     An = build_arena_A(noise=0.6)
     S = An.S; NA = An.D.shape[0]
     T = An.transition_matrices(1.0)
@@ -204,7 +208,7 @@ def fig_mop():
     Hsa = np.array([[ent(T[a, s]) for a in range(NA)] for s in range(S)])
     Enat = empowerment_field(An, 1.0, n=3) * np.log(2)
 
-    def soft_vi(r, alpha=0.5, gamma=0.95, iters=600):
+    def soft_vi(r, alpha=0.5, gamma=0.95, iters=2000):
         V = np.zeros(S)
         for _ in range(iters):
             Q = r + gamma*np.einsum('asx,x->sa', T, V)
@@ -212,24 +216,32 @@ def fig_mop():
         Q = r + gamma*np.einsum('asx,x->sa', T, V); m = Q.max(1, keepdims=True)
         pi = np.exp((Q-m)/alpha); return pi/pi.sum(1, keepdims=True)
 
-    def noise_dwell(pi, seed=0):
-        rng = np.random.default_rng(seed); s = An.resource_s; nz = 0; tot = 0
-        for t in range(6000):
-            a = rng.choice(NA, p=pi[s]); s = rng.choice(S, p=T[a, s])
-            if t > 500:
-                tot += 1; nz += (An.region.get(s) == "noise")
+    def noise_dwell(pi, seeds=20):
+        nz = 0; tot = 0
+        for seed in range(seeds):
+            rng = np.random.default_rng(seed); s = An.resource_s
+            for t in range(6000):
+                a = rng.choice(NA, p=pi[s]); s = rng.choice(S, p=T[a, s])
+                if t > 500:
+                    tot += 1; nz += (An.region.get(s) == "noise")
         return 100*nz/tot
-    d_mop = noise_dwell(soft_vi(Hsa))
+    d_mop2 = noise_dwell(soft_vi(2.0*Hsa, alpha=1.0))
+    d_mop0 = noise_dwell(soft_vi(0.0*Hsa, alpha=1.0))
     d_ctrl = noise_dwell(soft_vi(np.repeat(Enat[:, None], NA, 1)))
+    share = 100.0 * len(An.region_cells("noise")) / S
 
     fig, ax = plt.subplots(1, 2, figsize=(11.4, 4.2), gridspec_kw={"width_ratios": [1, 1.25]})
     # (a) the race
-    ax[0].bar([0, 1], [d_mop, d_ctrl], color=[ACCENT, COOL], width=0.6)
-    ax[0].set_xticks([0, 1]); ax[0].set_xticklabels(["MOP\n(reward $H(S')$)", "control-occupancy\n(reward $E$)"])
+    ax[0].bar([0, 1, 2], [d_mop2, d_mop0, d_ctrl], color=[ACCENT, "#e8a3ae", COOL], width=0.6)
+    ax[0].axhline(share, color="#999", ls=":", lw=1)
+    ax[0].text(2.45, share + 2, "random walk", fontsize=7.5, color="#888", ha="right")
+    ax[0].set_xticks([0, 1, 2])
+    ax[0].set_xticklabels(["MOP with\nstate entropy\n(β = 2)", "MOP, β = 0\n(their setting)",
+                           "control-\noccupancy\n(reward $E$)"], fontsize=8.5)
     ax[0].set_ylabel("time on the noisy TV (%)"); ax[0].set_ylim(0, 105)
-    for x, v in [(0, d_mop), (1, d_ctrl)]:
+    for x, v in [(0, d_mop2), (1, d_mop0), (2, d_ctrl)]:
         ax[0].text(x, v+3, "%.0f%%" % v, ha="center", fontweight="bold")
-    ax[0].set_title("(a)  same MOP machinery, different reward", fontsize=10.5)
+    ax[0].set_title("(a)  same machinery, different objective", fontsize=10.5)
 
     # (b) the paradox map
     b = ax[1]; b.set_xlim(0, 1); b.set_ylim(0, 1); b.set_xticks([]); b.set_yticks([])
@@ -245,7 +257,7 @@ def fig_mop():
     def q(x, y, t, sub, col):
         b.text(x, y+0.06, t, ha="center", fontsize=8.5, fontweight="bold", color=col)
         b.text(x, y-0.09, sub, ha="center", fontsize=7.8, color="#555")
-    q(0.25, 0.30, "MOP · info-gain · novelty", "✗ grand roulette · noisy TV", ACCENT)
+    q(0.25, 0.30, "MOP · info-gain · novelty", "✗ grand roulette · noisy TV\n(MOP: noisy TV only if β > 0)", ACCENT)
     q(0.25, 0.78, "prediction learning-progress\n(Oudeyer · Schmidhuber)", "escapes noise (derivative)", "#2a6b2a")
     q(0.75, 0.30, "empowerment-level", "✗ the throne\n(fixed-point collapse)", "#9b6a00")
     q(0.75, 0.82, "empowerment gain / progress", "escapes every trap", COOL)
@@ -256,41 +268,88 @@ def fig_mop():
     b.set_frame_on(False)
     fig.suptitle("Control-grounding, not occupancy, is what ignores the noisy TV", fontsize=11, y=1.0)
     fig.tight_layout(); fig.savefig(f"{FIG}/prog4_mop.png", bbox_inches="tight"); plt.close(fig)
-    print("  prog4_mop done (MOP %.0f%% noise, control-occupancy %.0f%%)" % (d_mop, d_ctrl))
+    print("  prog4_mop done (MOP beta=2 %.0f%%, beta=0 %.0f%%, control-occupancy %.0f%% noise)"
+          % (d_mop2, d_mop0, d_ctrl))
 
 
 def fig_roulette():
-    """The grand roulette -- MOP's adversarial environment. A control room
-    (deterministic, high empowerment) and a gambling room (interchangeable random
-    bets, ~zero control). MOP gorges on the gambling; empowerment ignores it."""
+    """The grand roulette -- MOP's adversarial environment -- measured, not assumed.
+
+    A control room (4 distinct moves + return, empowerment 2.3 bits) beside a
+    gambling room (n interchangeable bets with uniform-random outcomes + return).
+    Every bar here is computed in this script:
+      MOP, beta = 0     ln-sum-exp over actions only (their simulated setting)
+      MOP, beta = 1     plus next-state entropy
+      surprise          Part II's curiosity reward in steady state: model uncertainty
+                        u = 1 - mean_a max_s' p(s'|s,a), planned at low temperature
+      control-occupancy reward = empowerment (temperature 0.4, as in section 21)
+    The noisy-TV column uses the noise arena (Figure 16) for MOP and
+    control-occupancy, and Part II's measured surprise agent (Figure 13)."""
     from empower import paradox
-    E, dmop, dctrl = paradox.run(n_bets=8)
+    gamma = 0.9
 
-    fig, ax = plt.subplots(1, 2, figsize=(11, 4.0), gridspec_kw={"width_ratios": [1.15, 1]})
-    x = np.arange(2); w = 0.36
-    ax[0].bar(x - w/2, [100*dmop["control"], 100*dmop["roulette"]], w, color=ACCENT, label="MOP (occupancy)")
-    ax[0].bar(x + w/2, [100*dctrl["control"], 100*dctrl["roulette"]], w, color=COOL, label="control-occupancy")
-    ax[0].set_xticks(x); ax[0].set_xticklabels(["control room\n(empowerment 2.3 bits)", "grand roulette\n(empowerment 1.0 bit)"])
-    ax[0].set_ylabel("% of time spent"); ax[0].set_ylim(0, 105)
-    ax[0].set_title("(a)  MOP gorges on the gambling; empowerment ignores it", fontsize=10.5)
-    ax[0].legend(fontsize=8.5, frameon=False, loc="upper center")
+    def mop_pi(mdp, beta):
+        Hs = paradox.H_sa(mdp)
+        rew = {s: [beta * h * np.log(2) for h in Hs[s]] for s in range(mdp["S"])}
+        return paradox.soft_vi(mdp, rew, alpha=1.0, gamma=gamma, iters=3000)
 
-    # (b) the empirical taxonomy: dwell-in-the-trap across both adversarial worlds
-    envs = ["noisy TV\n(vs info-gain)", "grand roulette\n(vs MOP)"]
-    mop = [98, 100*dmop["roulette"]]; igm = [87, 100*dmop["roulette"]]; ctrl = [10, 100*dctrl["roulette"]]
-    xx = np.arange(2); w2 = 0.26
-    ax[1].bar(xx - w2, mop, w2, color=ACCENT, label="occupancy (MOP)")
-    ax[1].bar(xx, igm, w2, color="#d98e04", label="curiosity / info-gain")
-    ax[1].bar(xx + w2, ctrl, w2, color=COOL, label="control-grounded (ours)")
+    def ctrl_pi(mdp):
+        E = paradox.empowerment(mdp)
+        rew = {s: [E[s]] * len(mdp["A"][s]) for s in range(mdp["S"])}
+        return paradox.soft_vi(mdp, rew, alpha=0.4, gamma=gamma, iters=3000)
+
+    def surprise_pi(mdp):
+        u = {s: 1.0 - np.mean([p.max() for p in mdp["A"][s]]) for s in range(mdp["S"])}
+        rew = {s: [u[s]] * len(mdp["A"][s]) for s in range(mdp["S"])}
+        return paradox.soft_vi(mdp, rew, alpha=0.05, gamma=gamma, iters=3000)
+
+    bets = [2, 4, 8, 16]
+    curves = {"MOP, β = 0 (their setting)": [], "MOP, β = 1 (with state entropy)": [],
+              "surprise / info-gain": [], "control-occupancy": []}
+    for nb in bets:
+        mdp = paradox.build(n_bets=nb)
+        curves["MOP, β = 0 (their setting)"].append(100 * paradox.dwell(mdp, mop_pi(mdp, 0.0))["roulette"])
+        curves["MOP, β = 1 (with state entropy)"].append(100 * paradox.dwell(mdp, mop_pi(mdp, 1.0))["roulette"])
+        curves["surprise / info-gain"].append(100 * paradox.dwell(mdp, surprise_pi(mdp))["roulette"])
+        curves["control-occupancy"].append(100 * paradox.dwell(mdp, ctrl_pi(mdp))["roulette"])
+
+    noisy = json.load(open("data/mop_noise_check.json"))
+    tv = {"MOP, β = 0 (their setting)": noisy["mop|legal|0.95|0.00"]["noise"],
+          "MOP, β = 1 (with state entropy)": noisy["mop|legal|0.95|1.00"]["noise"],
+          "surprise / info-gain": 87.0,              # Part II, Figure 13 (measured there)
+          "control-occupancy": noisy["control_occupancy"]["noise"]}
+    cols = {"MOP, β = 0 (their setting)": "#e8a3ae", "MOP, β = 1 (with state entropy)": ACCENT,
+            "surprise / info-gain": "#d98e04", "control-occupancy": COOL}
+
+    fig, ax = plt.subplots(1, 2, figsize=(11.5, 4.1), gridspec_kw={"width_ratios": [1.1, 1]})
+    for name, ys in curves.items():
+        ax[0].plot(bets, ys, "o-", color=cols[name], lw=2, label=name)
+    ax[0].axvline(4, color="#999", ls=":", lw=1)
+    ax[0].text(3.85, 62, "as many bets as\ncontrol-room moves", fontsize=7.5, color="#888",
+               ha="right")
+    ax[0].set_xscale("log", base=2); ax[0].set_xticks(bets); ax[0].set_xticklabels(bets)
+    ax[0].set_xlabel("number of interchangeable bets")
+    ax[0].set_ylabel("% of time in the roulette"); ax[0].set_ylim(-3, 105)
+    ax[0].set_title("(a)  the grand roulette, by number of bets", fontsize=10.5)
+    ax[0].legend(fontsize=8, frameon=False, loc="center right")
+
+    envs = ["noisy TV", "grand roulette\n(8 bets)"]
+    xx = np.arange(2); w2 = 0.2
+    for k, name in enumerate(curves):
+        vals = [tv[name], curves[name][bets.index(8)]]
+        ax[1].bar(xx + (k - 1.5) * w2, vals, w2, color=cols[name], label=name)
+        for x0, v in zip(xx + (k - 1.5) * w2, vals):
+            if v < 3:
+                ax[1].text(x0, v + 1.5, "%.0f%%" % v, ha="center", fontsize=8,
+                           color=cols[name], fontweight="bold")
     ax[1].set_xticks(xx); ax[1].set_xticklabels(envs)
     ax[1].set_ylabel("% of time trapped"); ax[1].set_ylim(0, 105)
-    ax[1].set_title("(b)  control-grounding escapes both traps", fontsize=10.5)
-    ax[1].legend(fontsize=8, frameon=False, loc="upper right")
-    fig.suptitle("Two adversarial environments, one antidote: only diversity you cause counts",
+    ax[1].set_title("(b)  the taxonomy, measured", fontsize=10.5)
+    fig.suptitle("Two adversarial environments: what each objective counts decides which traps it",
                  fontsize=10.5, y=1.0)
     fig.tight_layout(); fig.savefig(f"{FIG}/prog5_roulette.png", bbox_inches="tight"); plt.close(fig)
-    print("  prog5_roulette done (MOP roulette %.0f%%, ctrl-occ %.0f%%)"
-          % (100*dmop["roulette"], 100*dctrl["roulette"]))
+    print("  prog5_roulette done:", {k: [round(v) for v in vs] for k, vs in curves.items()},
+          "noisy TV:", {k: round(v) for k, v in tv.items()})
 
 
 def export_demo():
